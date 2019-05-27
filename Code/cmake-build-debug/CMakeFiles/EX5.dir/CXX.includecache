@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cs/usr/tomka/CLionProjects/EX5/MemoryConstants.h
+climits
+-
+stdint.h
+-
+
+/cs/usr/tomka/CLionProjects/EX5/PhysicalMemory.h
+MemoryConstants.h
+/cs/usr/tomka/CLionProjects/EX5/MemoryConstants.h
+
+/cs/usr/tomka/CLionProjects/EX5/VirtualMemory.cpp
+VirtualMemory.h
+/cs/usr/tomka/CLionProjects/EX5/VirtualMemory.h
+PhysicalMemory.h
+/cs/usr/tomka/CLionProjects/EX5/PhysicalMemory.h
+math.h
+-
+iostream
+-
+
+/cs/usr/tomka/CLionProjects/EX5/VirtualMemory.h
+MemoryConstants.h
+/cs/usr/tomka/CLionProjects/EX5/MemoryConstants.h
+

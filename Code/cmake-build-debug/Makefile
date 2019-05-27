@@ -48,24 +48,13 @@ RM = /usr/local/APP/jetbrains/clion/2018.2.1/bin/cmake/linux/bin/cmake -E remove
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code
+CMAKE_SOURCE_DIR = /cs/usr/tomka/CLionProjects/EX5
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug
+CMAKE_BINARY_DIR = /cs/usr/tomka/CLionProjects/EX5/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/local/APP/jetbrains/clion/2018.2.1/bin/cmake/linux/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -78,11 +67,22 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/local/APP/jetbrains/clion/2018.2.1/bin/cmake/linux/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /cs/usr/tomka/CLionProjects/EX5/cmake-build-debug/CMakeFiles /cs/usr/tomka/CLionProjects/EX5/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /cs/usr/tomka/CLionProjects/EX5/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ex4
+# Target rules for targets named EX5
 
 # Build rule for target.
-ex4: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ex4
-.PHONY : ex4
+EX5: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 EX5
+.PHONY : EX5
 
 # fast build rule for target.
-ex4/fast:
-	$(MAKE) -f CMakeFiles/ex4.dir/build.make CMakeFiles/ex4.dir/build
-.PHONY : ex4/fast
+EX5/fast:
+	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/build
+.PHONY : EX5/fast
 
 PhysicalMemory.o: PhysicalMemory.cpp.o
 
@@ -129,7 +129,7 @@ PhysicalMemory.o: PhysicalMemory.cpp.o
 
 # target to build an object file
 PhysicalMemory.cpp.o:
-	$(MAKE) -f CMakeFiles/ex4.dir/build.make CMakeFiles/ex4.dir/PhysicalMemory.cpp.o
+	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/PhysicalMemory.cpp.o
 .PHONY : PhysicalMemory.cpp.o
 
 PhysicalMemory.i: PhysicalMemory.cpp.i
@@ -138,7 +138,7 @@ PhysicalMemory.i: PhysicalMemory.cpp.i
 
 # target to preprocess a source file
 PhysicalMemory.cpp.i:
-	$(MAKE) -f CMakeFiles/ex4.dir/build.make CMakeFiles/ex4.dir/PhysicalMemory.cpp.i
+	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/PhysicalMemory.cpp.i
 .PHONY : PhysicalMemory.cpp.i
 
 PhysicalMemory.s: PhysicalMemory.cpp.s
@@ -147,7 +147,7 @@ PhysicalMemory.s: PhysicalMemory.cpp.s
 
 # target to generate assembly for a file
 PhysicalMemory.cpp.s:
-	$(MAKE) -f CMakeFiles/ex4.dir/build.make CMakeFiles/ex4.dir/PhysicalMemory.cpp.s
+	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/PhysicalMemory.cpp.s
 .PHONY : PhysicalMemory.cpp.s
 
 SimpleTest.o: SimpleTest.cpp.o
@@ -156,7 +156,7 @@ SimpleTest.o: SimpleTest.cpp.o
 
 # target to build an object file
 SimpleTest.cpp.o:
-	$(MAKE) -f CMakeFiles/ex4.dir/build.make CMakeFiles/ex4.dir/SimpleTest.cpp.o
+	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/SimpleTest.cpp.o
 .PHONY : SimpleTest.cpp.o
 
 SimpleTest.i: SimpleTest.cpp.i
@@ -165,7 +165,7 @@ SimpleTest.i: SimpleTest.cpp.i
 
 # target to preprocess a source file
 SimpleTest.cpp.i:
-	$(MAKE) -f CMakeFiles/ex4.dir/build.make CMakeFiles/ex4.dir/SimpleTest.cpp.i
+	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/SimpleTest.cpp.i
 .PHONY : SimpleTest.cpp.i
 
 SimpleTest.s: SimpleTest.cpp.s
@@ -174,7 +174,7 @@ SimpleTest.s: SimpleTest.cpp.s
 
 # target to generate assembly for a file
 SimpleTest.cpp.s:
-	$(MAKE) -f CMakeFiles/ex4.dir/build.make CMakeFiles/ex4.dir/SimpleTest.cpp.s
+	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/SimpleTest.cpp.s
 .PHONY : SimpleTest.cpp.s
 
 VirtualMemory.o: VirtualMemory.cpp.o
@@ -183,7 +183,7 @@ VirtualMemory.o: VirtualMemory.cpp.o
 
 # target to build an object file
 VirtualMemory.cpp.o:
-	$(MAKE) -f CMakeFiles/ex4.dir/build.make CMakeFiles/ex4.dir/VirtualMemory.cpp.o
+	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/VirtualMemory.cpp.o
 .PHONY : VirtualMemory.cpp.o
 
 VirtualMemory.i: VirtualMemory.cpp.i
@@ -192,7 +192,7 @@ VirtualMemory.i: VirtualMemory.cpp.i
 
 # target to preprocess a source file
 VirtualMemory.cpp.i:
-	$(MAKE) -f CMakeFiles/ex4.dir/build.make CMakeFiles/ex4.dir/VirtualMemory.cpp.i
+	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/VirtualMemory.cpp.i
 .PHONY : VirtualMemory.cpp.i
 
 VirtualMemory.s: VirtualMemory.cpp.s
@@ -201,7 +201,7 @@ VirtualMemory.s: VirtualMemory.cpp.s
 
 # target to generate assembly for a file
 VirtualMemory.cpp.s:
-	$(MAKE) -f CMakeFiles/ex4.dir/build.make CMakeFiles/ex4.dir/VirtualMemory.cpp.s
+	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/VirtualMemory.cpp.s
 .PHONY : VirtualMemory.cpp.s
 
 # Help Target
@@ -210,9 +210,9 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... ex4"
+	@echo "... rebuild_cache"
+	@echo "... EX5"
 	@echo "... PhysicalMemory.o"
 	@echo "... PhysicalMemory.i"
 	@echo "... PhysicalMemory.s"
