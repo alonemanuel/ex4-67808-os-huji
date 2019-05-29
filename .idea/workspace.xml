@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="false">
-    <generated />
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
+    <generated>
+      <config projectName="EX5" targetName="EX5" />
+      <config projectName="EX5" targetName="ex4" />
+    </generated>
   </component>
   <component name="CMakeSettings">
     <configurations>
@@ -9,24 +12,54 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="afd457ff-aef8-46a9-aba4-f62930e64258" name="Default Changelist" comment="" />
+    <list default="true" id="afd457ff-aef8-46a9-aba4-f62930e64258" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Code/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/VirtualMemory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Code/VirtualMemory.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/3.12.0/CompilerIdC/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/3.12.0/CompilerIdCXX/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/3.12.0/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/EX5.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/EX5.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/EX5.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/EX5.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/EX5.dir/PhysicalMemory.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/EX5.dir/PhysicalMemory.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/EX5.dir/SimpleTest.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/EX5.dir/SimpleTest.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/EX5.dir/VirtualMemory.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/EX5.dir/VirtualMemory.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/EX5.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/EX5.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/EX5.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/EX5.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/EX5.dir/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/cmake-build-debug/CMakeFiles/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/cmake-build-debug/EX5" beforeDir="false" afterPath="$PROJECT_DIR$/Code/cmake-build-debug/EX5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/cmake-build-debug/EX5.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/Code/cmake-build-debug/EX5.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Code/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/Code/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FUSProjectUsageTrigger">
     <session id="-1722529955">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.closed" value="2" />
-          <entry key="project.open.time.0" value="2" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.0" value="3" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="cpp" value="2" />
           <entry key="h" value="1" />
           <entry key="txt" value="1" />
         </counts>
@@ -34,23 +67,46 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CMakeLists.txt" value="1" />
-          <entry key="ObjectiveC" value="1" />
+          <entry key="ObjectiveC" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="cpp" value="12" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="ObjectiveC" value="12" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Code/MemoryConstants.h">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/Code/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="5" column="82" lean-forward="true" selection-start-line="5" selection-start-column="82" selection-end-line="5" selection-end-column="82" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Code/PhysicalMemory.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="16" column="20" lean-forward="true" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Code/CMakeLists.txt">
+        <entry file="file://$PROJECT_DIR$/Code/VirtualMemory.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="20" lean-forward="true" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+            <state relative-caret-position="255">
+              <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -71,6 +127,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Code/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/Code/VirtualMemory.cpp" />
       </list>
     </option>
   </component>
@@ -81,9 +138,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="4">
-    <option name="y" value="26" />
+    <option name="x" value="960" />
+    <option name="y" value="27" />
     <option name="width" value="960" />
-    <option name="height" value="1030" />
+    <option name="height" value="1149" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -98,11 +156,11 @@
         <subPane>
           <expand>
             <path>
-              <item name="Ex4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EX5" type="b2602c69:ProjectViewProjectNode" />
               <item name="Ex4" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Ex4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EX5" type="b2602c69:ProjectViewProjectNode" />
               <item name="Ex4" type="462c0819:PsiDirectoryNode" />
               <item name="Code" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -136,6 +194,13 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="EX5" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="EX5" TARGET_NAME="EX5" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="EX5" RUN_TARGET_NAME="EX5">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -147,22 +212,25 @@
       <option name="presentableId" value="Default" />
       <updated>1558353498022</updated>
       <workItem from="1558957396200" duration="187000" />
+      <workItem from="1559135575080" duration="2173000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="187000" />
+    <option name="totallyTimeSpent" value="2360000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="26" width="960" height="1030" extended-state="4" />
+    <frame x="960" y="27" width="960" height="1149" extended-state="4" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25496688" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.25995576" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" weight="0.32971373" />
+      <window_info anchor="bottom" id="CMake" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32971373" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -186,13 +254,25 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Code/MemoryConstants.h">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Code/MemoryConstants.h" />
     <entry file="file://$PROJECT_DIR$/Code/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="20" lean-forward="true" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+        <state relative-caret-position="110">
+          <caret line="5" column="82" lean-forward="true" selection-start-line="5" selection-start-column="82" selection-end-line="5" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Code/PhysicalMemory.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" column="20" lean-forward="true" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Code/VirtualMemory.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
         </state>
       </provider>
     </entry>

@@ -1,3 +1,3 @@
-/cs/usr/tomka/CLionProjects/EX5/cmake-build-debug/CMakeFiles/edit_cache.dir
-/cs/usr/tomka/CLionProjects/EX5/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/cs/usr/tomka/CLionProjects/EX5/cmake-build-debug/CMakeFiles/EX5.dir
+/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles/edit_cache.dir
+/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles/EX5.dir

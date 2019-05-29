@@ -45,9 +45,6 @@ uint64_t virt2phys(uint64_t va)
     p = va >> OFFSET_WIDTH;
 
     partitionAddr(p, addrSegs);
-    std::cout << "address: " << va << "\n";
-    std::cout << "p: " << p << "\n";
-    std::cout << "d: " << offset << "\n";
     for(int i = 0; i < TABLES_DEPTH; i++){
         std::cout << i << "   " << addrSegs[i] << "\n";
     }
@@ -58,7 +55,7 @@ uint64_t virt2phys(uint64_t va)
     {
         PMread(currAddr * PAGE_SIZE + addrSegs[depth], &currAddr);
         if (currAddr == 0) {
-            std::cout << "find frame \n";
+
         }
         --depth;
     }

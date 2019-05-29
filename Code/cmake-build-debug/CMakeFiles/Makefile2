@@ -59,10 +59,10 @@ RM = /usr/local/APP/jetbrains/clion/2018.2.1/bin/cmake/linux/bin/cmake -E remove
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /cs/usr/tomka/CLionProjects/EX5
+CMAKE_SOURCE_DIR = /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /cs/usr/tomka/CLionProjects/EX5/cmake-build-debug
+CMAKE_BINARY_DIR = /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug
 
 #=============================================================================
 # Target rules for target CMakeFiles/EX5.dir
@@ -71,7 +71,7 @@ CMAKE_BINARY_DIR = /cs/usr/tomka/CLionProjects/EX5/cmake-build-debug
 CMakeFiles/EX5.dir/all:
 	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/depend
 	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/cs/usr/tomka/CLionProjects/EX5/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4 "Built target EX5"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4 "Built target EX5"
 .PHONY : CMakeFiles/EX5.dir/all
 
 # Include target in all.
@@ -81,9 +81,9 @@ all: CMakeFiles/EX5.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/EX5.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /cs/usr/tomka/CLionProjects/EX5/cmake-build-debug/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/EX5.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /cs/usr/tomka/CLionProjects/EX5/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/EX5.dir/rule
 
 # Convenience name for target.

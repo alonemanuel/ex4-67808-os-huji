@@ -43,10 +43,10 @@ RM = /usr/local/APP/jetbrains/clion/2018.2.1/bin/cmake/linux/bin/cmake -E remove
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /cs/usr/tomka/CLionProjects/EX5
+CMAKE_SOURCE_DIR = /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /cs/usr/tomka/CLionProjects/EX5/cmake-build-debug
+CMAKE_BINARY_DIR = /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/EX5.dir/depend.make
@@ -59,42 +59,42 @@ include CMakeFiles/EX5.dir/flags.make
 
 CMakeFiles/EX5.dir/VirtualMemory.cpp.o: CMakeFiles/EX5.dir/flags.make
 CMakeFiles/EX5.dir/VirtualMemory.cpp.o: ../VirtualMemory.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cs/usr/tomka/CLionProjects/EX5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/EX5.dir/VirtualMemory.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EX5.dir/VirtualMemory.cpp.o -c /cs/usr/tomka/CLionProjects/EX5/VirtualMemory.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/EX5.dir/VirtualMemory.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EX5.dir/VirtualMemory.cpp.o -c /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/VirtualMemory.cpp
 
 CMakeFiles/EX5.dir/VirtualMemory.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/EX5.dir/VirtualMemory.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cs/usr/tomka/CLionProjects/EX5/VirtualMemory.cpp > CMakeFiles/EX5.dir/VirtualMemory.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/VirtualMemory.cpp > CMakeFiles/EX5.dir/VirtualMemory.cpp.i
 
 CMakeFiles/EX5.dir/VirtualMemory.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/EX5.dir/VirtualMemory.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cs/usr/tomka/CLionProjects/EX5/VirtualMemory.cpp -o CMakeFiles/EX5.dir/VirtualMemory.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/VirtualMemory.cpp -o CMakeFiles/EX5.dir/VirtualMemory.cpp.s
 
 CMakeFiles/EX5.dir/PhysicalMemory.cpp.o: CMakeFiles/EX5.dir/flags.make
 CMakeFiles/EX5.dir/PhysicalMemory.cpp.o: ../PhysicalMemory.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cs/usr/tomka/CLionProjects/EX5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/EX5.dir/PhysicalMemory.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EX5.dir/PhysicalMemory.cpp.o -c /cs/usr/tomka/CLionProjects/EX5/PhysicalMemory.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/EX5.dir/PhysicalMemory.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EX5.dir/PhysicalMemory.cpp.o -c /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/PhysicalMemory.cpp
 
 CMakeFiles/EX5.dir/PhysicalMemory.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/EX5.dir/PhysicalMemory.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cs/usr/tomka/CLionProjects/EX5/PhysicalMemory.cpp > CMakeFiles/EX5.dir/PhysicalMemory.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/PhysicalMemory.cpp > CMakeFiles/EX5.dir/PhysicalMemory.cpp.i
 
 CMakeFiles/EX5.dir/PhysicalMemory.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/EX5.dir/PhysicalMemory.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cs/usr/tomka/CLionProjects/EX5/PhysicalMemory.cpp -o CMakeFiles/EX5.dir/PhysicalMemory.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/PhysicalMemory.cpp -o CMakeFiles/EX5.dir/PhysicalMemory.cpp.s
 
 CMakeFiles/EX5.dir/SimpleTest.cpp.o: CMakeFiles/EX5.dir/flags.make
 CMakeFiles/EX5.dir/SimpleTest.cpp.o: ../SimpleTest.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cs/usr/tomka/CLionProjects/EX5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/EX5.dir/SimpleTest.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EX5.dir/SimpleTest.cpp.o -c /cs/usr/tomka/CLionProjects/EX5/SimpleTest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/EX5.dir/SimpleTest.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EX5.dir/SimpleTest.cpp.o -c /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/SimpleTest.cpp
 
 CMakeFiles/EX5.dir/SimpleTest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/EX5.dir/SimpleTest.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cs/usr/tomka/CLionProjects/EX5/SimpleTest.cpp > CMakeFiles/EX5.dir/SimpleTest.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/SimpleTest.cpp > CMakeFiles/EX5.dir/SimpleTest.cpp.i
 
 CMakeFiles/EX5.dir/SimpleTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/EX5.dir/SimpleTest.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cs/usr/tomka/CLionProjects/EX5/SimpleTest.cpp -o CMakeFiles/EX5.dir/SimpleTest.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/SimpleTest.cpp -o CMakeFiles/EX5.dir/SimpleTest.cpp.s
 
 # Object files for target EX5
 EX5_OBJECTS = \
@@ -110,7 +110,7 @@ EX5: CMakeFiles/EX5.dir/PhysicalMemory.cpp.o
 EX5: CMakeFiles/EX5.dir/SimpleTest.cpp.o
 EX5: CMakeFiles/EX5.dir/build.make
 EX5: CMakeFiles/EX5.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cs/usr/tomka/CLionProjects/EX5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable EX5"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable EX5"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/EX5.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -123,6 +123,6 @@ CMakeFiles/EX5.dir/clean:
 .PHONY : CMakeFiles/EX5.dir/clean
 
 CMakeFiles/EX5.dir/depend:
-	cd /cs/usr/tomka/CLionProjects/EX5/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /cs/usr/tomka/CLionProjects/EX5 /cs/usr/tomka/CLionProjects/EX5 /cs/usr/tomka/CLionProjects/EX5/cmake-build-debug /cs/usr/tomka/CLionProjects/EX5/cmake-build-debug /cs/usr/tomka/CLionProjects/EX5/cmake-build-debug/CMakeFiles/EX5.dir/DependInfo.cmake --color=$(COLOR)
+	cd /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles/EX5.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/EX5.dir/depend
 
