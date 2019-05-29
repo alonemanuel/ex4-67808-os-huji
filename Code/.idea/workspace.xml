@@ -12,8 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="38dce2c5-fdf9-4616-bfa5-b157773308b7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VirtualMemory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualMemory.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,7 +46,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cpp" value="3235" />
+          <entry key="cpp" value="3358" />
           <entry key="txt" value="71" />
         </counts>
       </usages-collector>
@@ -56,7 +54,7 @@
         <counts>
           <entry key="CMakeLists.txt" value="71" />
           <entry key="Doxygen file" value="1" />
-          <entry key="ObjectiveC" value="3234" />
+          <entry key="ObjectiveC" value="3357" />
         </counts>
       </usages-collector>
     </session>
@@ -125,8 +123,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/VirtualMemory.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="52" column="49" lean-forward="true" selection-start-line="52" selection-start-column="49" selection-end-line="52" selection-end-column="49" />
+            <state relative-caret-position="379">
+              <caret line="46" column="25" lean-forward="true" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -174,10 +172,10 @@
     <scope name="src" pattern="file[Code]:src/*&amp;&amp;!file:src/README" />
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="960" />
+  <component name="ProjectFrameBounds" extendedState="4">
+    <option name="x" value="845" />
     <option name="y" value="26" />
-    <option name="width" value="960" />
+    <option name="width" value="1075" />
     <option name="height" value="1030" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -268,12 +266,12 @@
       <workItem from="1558957782778" duration="7372000" />
       <workItem from="1558968181124" duration="2352000" />
       <workItem from="1559138433091" duration="12803000" />
-      <workItem from="1559152636809" duration="76000" />
+      <workItem from="1559152636809" duration="1289000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22980000" />
+    <option name="totallyTimeSpent" value="24193000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -285,10 +283,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="26" width="1928" height="1033" extended-state="6" />
+    <frame x="845" y="26" width="1075" height="1030" extended-state="4" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.09658484" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.20022124" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -358,8 +356,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/VirtualMemory.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="52" column="49" lean-forward="true" selection-start-line="52" selection-start-column="49" selection-end-line="52" selection-end-column="49" />
+        <state relative-caret-position="379">
+          <caret line="46" column="25" lean-forward="true" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

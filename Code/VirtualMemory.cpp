@@ -50,9 +50,11 @@ bool isChildless(word_t curr_f)
 	return true;
 }
 
-void updateMaxCycl(word_t *curr_cycl_f, int *curr_cycl_val, word_t *max_cycl_f, int *max_cycl_val)
+void updateMaxCycl(word_t *curr_f, word_t *max_cycl_f, int *max_cycl_val, int p)
 {
-
+	int val1 = NUM_PAGES - (*curr_f - p);
+	int val2 = *curr_f - p;
+	return (val1 > val2) ? val1 : val2;
 }
 
 
@@ -61,7 +63,7 @@ void updateMaxCycl(word_t *curr_cycl_f, int *curr_cycl_val, word_t *max_cycl_f, 
  * @param f2Find frame we are aiming to update.
  */
 void findFrame2(word_t *target_parent, word_t *curr_parent, word_t *curr_f, int currDepth, bool
-*didUpdate, word_t *max, word_t *max_cycl_f, int *max_cycl_val)
+*didUpdate, word_t *max, word_t *max_cycl_f, int *max_cycl_val, int p)
 {
 	if (didUpdate)        // TODO: This is wasteful (all nodes are traversed). Find a better way.
 	{
@@ -76,7 +78,7 @@ void findFrame2(word_t *target_parent, word_t *curr_parent, word_t *curr_f, int 
 	}
 	if (currDepth == TABLES_DEPTH)    // Is leaf?
 	{
-		updateMaxCycl(max_cycl_f, max_cycl_val);
+		updateMaxCycl(curr_f, max_cycl_f, max_cycl_val, p);
 		return;
 	}
 	// else:
@@ -139,7 +141,7 @@ uint64_t virt2phys(uint64_t va)
 			word_t mainFrame = 0, curr_f = 0, max_f = 0, max_cycl_f = 0;
 			int max_cycl_val = 0;
 			findFrame(&currAddr, &mainFrame, &curr_f, 0, &didUpdate, &max_f, &max_cycl_f,
-					  &max_cycl_val);
+					  &max_cycl_val, p);
 			if (!didUpdate)
 			{
 				setFrame(&currAddr, &didUpdate, &max_f)
