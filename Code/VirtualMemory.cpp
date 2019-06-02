@@ -4,6 +4,8 @@
 #include <iostream>
 
 
+using namespace std;
+
 void clearTable(uint64_t frameIndex) {
     for (uint64_t i = 0; i < PAGE_SIZE; ++i) {
         PMwrite(frameIndex * PAGE_SIZE + i, 0);
@@ -105,9 +107,11 @@ currDepth, bool *didUpdate, word_t *max, word_t *maxCurrFrame, word_t
 }
 
 
-void evictFrame(word_t *currAddr, word_t *max_cycl_f, word_t *max_cycl_parent, word_t frameToEvict, word_t pageToEvict) {
+void
+evictFrame(word_t *currAddr, word_t *max_cycl_f, word_t *max_cycl_parent, word_t frameToEvict, word_t pageToEvict) {
     PMevict((uint64_t) frameToEvict, (uint64_t) pageToEvict);
-    PMwrite((uint64_t) frameToEvict, 0);   // TODO: Make sure the correct cell is updated (maybe send i (as in the offset)?)
+    PMwrite((uint64_t) frameToEvict,
+            0);   // TODO: Make sure the correct cell is updated (maybe send i (as in the offset)?)
 }
 
 void setFrame(word_t *currAddr, word_t *parent, word_t *didUpdate, word_t *max_f, word_t
@@ -125,6 +129,8 @@ void setFrame(word_t *currAddr, word_t *parent, word_t *didUpdate, word_t *max_f
  * @return
  */
 uint64_t virt2phys(uint64_t va) {
+    cout << "Us: Entered virt2phys" << endl;
+
     uint64_t offset, p;
     uint64_t addrSegs[TABLES_DEPTH];
 
@@ -138,6 +144,8 @@ uint64_t virt2phys(uint64_t va) {
 
     // "Go down the tree" and retrieve the address
     while (depth >= 0) {
+        cout << "Us: Traversing the tree" << endl;
+
         PMread(currAddr * PAGE_SIZE + addrSegs[depth], &currAddr);
         if (currAddr == 0) {
             bool didUpdate = false;
@@ -161,6 +169,7 @@ uint64_t virt2phys(uint64_t va) {
 
 // TODO: how do we check if the process succeeded and when to return 0?
 int VMread(uint64_t virtualAddress, word_t *value) {
+    cout << "Us: Entered VMread" << endl;
     uint64_t physicalAddr = virt2phys(virtualAddress);
     PMread(physicalAddr, value);
     return 1;
@@ -169,7 +178,7 @@ int VMread(uint64_t virtualAddress, word_t *value) {
 
 int VMwrite(uint64_t virtualAddress, word_t value) {
     uint64_t physicalAddr = virt2phys(virtualAddress);
-    PMwrite(physicalAddr, value);
+//    PMwrite(physicalAddr, value);
     return 1;
 }
 

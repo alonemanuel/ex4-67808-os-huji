@@ -6,33 +6,27 @@
 
 #IncludeRegexTransform: 
 
-/cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/FlowExampleSimulation.cpp
-cstdio
--
-cassert
--
-iostream
--
-iomanip
--
-vector
--
-VirtualMemory.h
-/cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/VirtualMemory.h
-PhysicalMemory.h
-/cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/PhysicalMemory.h
-
-/cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/MemoryConstants1.h
+/cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/MemoryConstants.h
 climits
 -
 stdint.h
 -
 
 /cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/PhysicalMemory.h
-MemoryConstants1.h
-/cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/MemoryConstants1.h
+MemoryConstants.h
+/cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/MemoryConstants.h
+
+/cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/VirtualMemory.cpp
+VirtualMemory.h
+/cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/VirtualMemory.h
+PhysicalMemory.h
+/cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/PhysicalMemory.h
+math.h
+-
+iostream
+-
 
 /cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/VirtualMemory.h
-MemoryConstants1.h
-/cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/MemoryConstants1.h
+MemoryConstants.h
+/cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/MemoryConstants.h
 

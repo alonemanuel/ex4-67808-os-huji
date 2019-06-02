@@ -51,7 +51,7 @@ std::vector<word_t> state5 = {1, 4, 0, 6, 0, 7, 0, 2, 0, 3, 0, 0, 0, 5, 0, 99};
 static bool printType = false; // You may change this to True if you want.
 
 int main(int argc, char **argv) {
-    cout << "Started test" << endl;
+    cout << OFFSET_WIDTH << endl;
     if (OFFSET_WIDTH != 1 or PAGE_SIZE != 2 or RAM_SIZE != 16 or VIRTUAL_ADDRESS_WIDTH != 5 or
         VIRTUAL_MEMORY_SIZE != 32) {
         cout <<

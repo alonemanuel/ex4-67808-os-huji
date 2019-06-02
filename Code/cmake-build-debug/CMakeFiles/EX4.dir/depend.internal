@@ -3,15 +3,15 @@
 
 CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.o
  /cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/FlowExampleSimulation.cpp
- /cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/MemoryConstants1.h
+ /cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/MemoryConstants.h
  /cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/PhysicalMemory.h
  /cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/VirtualMemory.h
 CMakeFiles/EX4.dir/PhysicalMemory.cpp.o
- /cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/MemoryConstants1.h
+ /cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/MemoryConstants.h
  /cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/PhysicalMemory.cpp
  /cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/PhysicalMemory.h
 CMakeFiles/EX4.dir/VirtualMemory.cpp.o
- /cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/MemoryConstants1.h
+ /cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/MemoryConstants.h
  /cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/PhysicalMemory.h
  /cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/VirtualMemory.cpp
  /cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/VirtualMemory.h
