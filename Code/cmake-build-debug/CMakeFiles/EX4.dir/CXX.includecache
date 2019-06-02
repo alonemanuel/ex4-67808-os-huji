@@ -6,27 +6,27 @@
 
 #IncludeRegexTransform: 
 
-/cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/MemoryConstants.h
+/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/MemoryConstants.h
 climits
 -
 stdint.h
 -
 
-/cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/PhysicalMemory.h
+/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/PhysicalMemory.h
 MemoryConstants.h
-/cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/MemoryConstants.h
+/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/MemoryConstants.h
 
-/cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/VirtualMemory.cpp
+/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/VirtualMemory.cpp
 VirtualMemory.h
-/cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/VirtualMemory.h
+/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/VirtualMemory.h
 PhysicalMemory.h
-/cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/PhysicalMemory.h
+/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/PhysicalMemory.h
 math.h
 -
 iostream
 -
 
-/cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/VirtualMemory.h
+/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/VirtualMemory.h
 MemoryConstants.h
-/cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/MemoryConstants.h
+/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/MemoryConstants.h
 

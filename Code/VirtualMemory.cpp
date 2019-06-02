@@ -151,15 +151,14 @@ uint64_t virt2phys(uint64_t va) {
             bool didUpdate = false;
             word_t mainFrame = 0, curr_f = 0, max_f = 0, max_cycl_f = 0, max_cycl_parent = 0, curr_page = 0;
             int max_cycl_val = 0;
-//            word_t *target_parent, word_t *currFrame, word_t *currFrameParent, int
-//            currDepth, bool *didUpdate, word_t *max, word_t *maxCurrFrame, word_t
-//                                                                           *maxFrameParent, word_t *pageSwappedIn, int *maxCyclDist, word_t *currPage
             findFrame(&currAddr, &mainFrame, &curr_f, 0, &didUpdate, &max_f, &max_cycl_f,
                       &max_cycl_parent, &p, &max_cycl_val, &curr_page);
             //
             if (!didUpdate) {
 //                setFrame(&currAddr, &didUpdate, &max_f)
             }
+            PMwrite((uint64_t) currAddr * PAGE_SIZE + addrSegs[depth - 1], mainFrame);
+
         }
         --depth;
     }
