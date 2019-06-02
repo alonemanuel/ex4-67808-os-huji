@@ -57,18 +57,18 @@ include CMakeFiles/EX5.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/EX5.dir/flags.make
 
-CMakeFiles/EX5.dir/VirtualMemory.cpp.o: CMakeFiles/EX5.dir/flags.make
-CMakeFiles/EX5.dir/VirtualMemory.cpp.o: ../VirtualMemory.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/EX5.dir/VirtualMemory.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EX5.dir/VirtualMemory.cpp.o -c /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/VirtualMemory.cpp
+CMakeFiles/EX5.dir/VirtualMemory2.cpp.o: CMakeFiles/EX5.dir/flags.make
+CMakeFiles/EX5.dir/VirtualMemory2.cpp.o: ../VirtualMemory2.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/EX5.dir/VirtualMemory2.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EX5.dir/VirtualMemory2.cpp.o -c /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/VirtualMemory2.cpp
 
-CMakeFiles/EX5.dir/VirtualMemory.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/EX5.dir/VirtualMemory.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/VirtualMemory.cpp > CMakeFiles/EX5.dir/VirtualMemory.cpp.i
+CMakeFiles/EX5.dir/VirtualMemory2.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/EX5.dir/VirtualMemory2.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/VirtualMemory2.cpp > CMakeFiles/EX5.dir/VirtualMemory2.cpp.i
 
-CMakeFiles/EX5.dir/VirtualMemory.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/EX5.dir/VirtualMemory.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/VirtualMemory.cpp -o CMakeFiles/EX5.dir/VirtualMemory.cpp.s
+CMakeFiles/EX5.dir/VirtualMemory2.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/EX5.dir/VirtualMemory2.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/VirtualMemory2.cpp -o CMakeFiles/EX5.dir/VirtualMemory2.cpp.s
 
 CMakeFiles/EX5.dir/PhysicalMemory.cpp.o: CMakeFiles/EX5.dir/flags.make
 CMakeFiles/EX5.dir/PhysicalMemory.cpp.o: ../PhysicalMemory.cpp
@@ -98,14 +98,14 @@ CMakeFiles/EX5.dir/SimpleTest.cpp.s: cmake_force
 
 # Object files for target EX5
 EX5_OBJECTS = \
-"CMakeFiles/EX5.dir/VirtualMemory.cpp.o" \
+"CMakeFiles/EX5.dir/VirtualMemory2.cpp.o" \
 "CMakeFiles/EX5.dir/PhysicalMemory.cpp.o" \
 "CMakeFiles/EX5.dir/SimpleTest.cpp.o"
 
 # External object files for target EX5
 EX5_EXTERNAL_OBJECTS =
 
-EX5: CMakeFiles/EX5.dir/VirtualMemory.cpp.o
+EX5: CMakeFiles/EX5.dir/VirtualMemory2.cpp.o
 EX5: CMakeFiles/EX5.dir/PhysicalMemory.cpp.o
 EX5: CMakeFiles/EX5.dir/SimpleTest.cpp.o
 EX5: CMakeFiles/EX5.dir/build.make

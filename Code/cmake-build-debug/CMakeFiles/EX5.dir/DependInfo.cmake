@@ -6,7 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/PhysicalMemory.cpp" "/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles/EX5.dir/PhysicalMemory.cpp.o"
   "/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/SimpleTest.cpp" "/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles/EX5.dir/SimpleTest.cpp.o"
-  "/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/VirtualMemory.cpp" "/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles/EX5.dir/VirtualMemory.cpp.o"
+  "/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/VirtualMemory2.cpp" "/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles/EX5.dir/VirtualMemory2.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

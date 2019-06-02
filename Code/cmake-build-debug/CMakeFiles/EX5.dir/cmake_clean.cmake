@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/EX5.dir/VirtualMemory.cpp.o"
+  "CMakeFiles/EX5.dir/VirtualMemory2.cpp.o"
   "CMakeFiles/EX5.dir/PhysicalMemory.cpp.o"
   "CMakeFiles/EX5.dir/SimpleTest.cpp.o"
   "EX5.pdb"

@@ -177,32 +177,32 @@ SimpleTest.cpp.s:
 	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/SimpleTest.cpp.s
 .PHONY : SimpleTest.cpp.s
 
-VirtualMemory.o: VirtualMemory.cpp.o
+VirtualMemory2.o: VirtualMemory2.cpp.o
 
-.PHONY : VirtualMemory.o
+.PHONY : VirtualMemory2.o
 
 # target to build an object file
-VirtualMemory.cpp.o:
-	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/VirtualMemory.cpp.o
-.PHONY : VirtualMemory.cpp.o
+VirtualMemory2.cpp.o:
+	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/VirtualMemory2.cpp.o
+.PHONY : VirtualMemory2.cpp.o
 
-VirtualMemory.i: VirtualMemory.cpp.i
+VirtualMemory2.i: VirtualMemory2.cpp.i
 
-.PHONY : VirtualMemory.i
+.PHONY : VirtualMemory2.i
 
 # target to preprocess a source file
-VirtualMemory.cpp.i:
-	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/VirtualMemory.cpp.i
-.PHONY : VirtualMemory.cpp.i
+VirtualMemory2.cpp.i:
+	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/VirtualMemory2.cpp.i
+.PHONY : VirtualMemory2.cpp.i
 
-VirtualMemory.s: VirtualMemory.cpp.s
+VirtualMemory2.s: VirtualMemory2.cpp.s
 
-.PHONY : VirtualMemory.s
+.PHONY : VirtualMemory2.s
 
 # target to generate assembly for a file
-VirtualMemory.cpp.s:
-	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/VirtualMemory.cpp.s
-.PHONY : VirtualMemory.cpp.s
+VirtualMemory2.cpp.s:
+	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/VirtualMemory2.cpp.s
+.PHONY : VirtualMemory2.cpp.s
 
 # Help Target
 help:
@@ -219,9 +219,9 @@ help:
 	@echo "... SimpleTest.o"
 	@echo "... SimpleTest.i"
 	@echo "... SimpleTest.s"
-	@echo "... VirtualMemory.o"
-	@echo "... VirtualMemory.i"
-	@echo "... VirtualMemory.s"
+	@echo "... VirtualMemory2.o"
+	@echo "... VirtualMemory2.i"
+	@echo "... VirtualMemory2.s"
 .PHONY : help
 
 
