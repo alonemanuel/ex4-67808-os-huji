@@ -48,24 +48,13 @@ RM = /usr/local/APP/jetbrains/clion/2018.2.1/bin/cmake/linux/bin/cmake -E remove
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code
+CMAKE_SOURCE_DIR = /cs/usr/tomka/Desktop/OS/virtual-memory-os/Code
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug
+CMAKE_BINARY_DIR = /cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/local/APP/jetbrains/clion/2018.2.1/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -78,11 +67,22 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/local/APP/jetbrains/clion/2018.2.1/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/cmake-build-debug/CMakeFiles /cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,17 +111,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named EX5
+# Target rules for targets named EX4
 
 # Build rule for target.
-EX5: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 EX5
-.PHONY : EX5
+EX4: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 EX4
+.PHONY : EX4
 
 # fast build rule for target.
-EX5/fast:
-	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/build
-.PHONY : EX5/fast
+EX4/fast:
+	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/build
+.PHONY : EX4/fast
+
+FlowExampleSimulation.o: FlowExampleSimulation.cpp.o
+
+.PHONY : FlowExampleSimulation.o
+
+# target to build an object file
+FlowExampleSimulation.cpp.o:
+	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.o
+.PHONY : FlowExampleSimulation.cpp.o
+
+FlowExampleSimulation.i: FlowExampleSimulation.cpp.i
+
+.PHONY : FlowExampleSimulation.i
+
+# target to preprocess a source file
+FlowExampleSimulation.cpp.i:
+	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.i
+.PHONY : FlowExampleSimulation.cpp.i
+
+FlowExampleSimulation.s: FlowExampleSimulation.cpp.s
+
+.PHONY : FlowExampleSimulation.s
+
+# target to generate assembly for a file
+FlowExampleSimulation.cpp.s:
+	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.s
+.PHONY : FlowExampleSimulation.cpp.s
 
 PhysicalMemory.o: PhysicalMemory.cpp.o
 
@@ -129,7 +156,7 @@ PhysicalMemory.o: PhysicalMemory.cpp.o
 
 # target to build an object file
 PhysicalMemory.cpp.o:
-	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/PhysicalMemory.cpp.o
+	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/PhysicalMemory.cpp.o
 .PHONY : PhysicalMemory.cpp.o
 
 PhysicalMemory.i: PhysicalMemory.cpp.i
@@ -138,7 +165,7 @@ PhysicalMemory.i: PhysicalMemory.cpp.i
 
 # target to preprocess a source file
 PhysicalMemory.cpp.i:
-	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/PhysicalMemory.cpp.i
+	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/PhysicalMemory.cpp.i
 .PHONY : PhysicalMemory.cpp.i
 
 PhysicalMemory.s: PhysicalMemory.cpp.s
@@ -147,62 +174,35 @@ PhysicalMemory.s: PhysicalMemory.cpp.s
 
 # target to generate assembly for a file
 PhysicalMemory.cpp.s:
-	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/PhysicalMemory.cpp.s
+	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/PhysicalMemory.cpp.s
 .PHONY : PhysicalMemory.cpp.s
 
-SimpleTest.o: SimpleTest.cpp.o
+VirtualMemory.o: VirtualMemory.cpp.o
 
-.PHONY : SimpleTest.o
-
-# target to build an object file
-SimpleTest.cpp.o:
-	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/SimpleTest.cpp.o
-.PHONY : SimpleTest.cpp.o
-
-SimpleTest.i: SimpleTest.cpp.i
-
-.PHONY : SimpleTest.i
-
-# target to preprocess a source file
-SimpleTest.cpp.i:
-	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/SimpleTest.cpp.i
-.PHONY : SimpleTest.cpp.i
-
-SimpleTest.s: SimpleTest.cpp.s
-
-.PHONY : SimpleTest.s
-
-# target to generate assembly for a file
-SimpleTest.cpp.s:
-	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/SimpleTest.cpp.s
-.PHONY : SimpleTest.cpp.s
-
-VirtualMemory2.o: VirtualMemory2.cpp.o
-
-.PHONY : VirtualMemory2.o
+.PHONY : VirtualMemory.o
 
 # target to build an object file
-VirtualMemory2.cpp.o:
-	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/VirtualMemory2.cpp.o
-.PHONY : VirtualMemory2.cpp.o
+VirtualMemory.cpp.o:
+	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/VirtualMemory.cpp.o
+.PHONY : VirtualMemory.cpp.o
 
-VirtualMemory2.i: VirtualMemory2.cpp.i
+VirtualMemory.i: VirtualMemory.cpp.i
 
-.PHONY : VirtualMemory2.i
+.PHONY : VirtualMemory.i
 
 # target to preprocess a source file
-VirtualMemory2.cpp.i:
-	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/VirtualMemory2.cpp.i
-.PHONY : VirtualMemory2.cpp.i
+VirtualMemory.cpp.i:
+	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/VirtualMemory.cpp.i
+.PHONY : VirtualMemory.cpp.i
 
-VirtualMemory2.s: VirtualMemory2.cpp.s
+VirtualMemory.s: VirtualMemory.cpp.s
 
-.PHONY : VirtualMemory2.s
+.PHONY : VirtualMemory.s
 
 # target to generate assembly for a file
-VirtualMemory2.cpp.s:
-	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/VirtualMemory2.cpp.s
-.PHONY : VirtualMemory2.cpp.s
+VirtualMemory.cpp.s:
+	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/VirtualMemory.cpp.s
+.PHONY : VirtualMemory.cpp.s
 
 # Help Target
 help:
@@ -210,18 +210,18 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... EX5"
+	@echo "... edit_cache"
+	@echo "... EX4"
+	@echo "... FlowExampleSimulation.o"
+	@echo "... FlowExampleSimulation.i"
+	@echo "... FlowExampleSimulation.s"
 	@echo "... PhysicalMemory.o"
 	@echo "... PhysicalMemory.i"
 	@echo "... PhysicalMemory.s"
-	@echo "... SimpleTest.o"
-	@echo "... SimpleTest.i"
-	@echo "... SimpleTest.s"
-	@echo "... VirtualMemory2.o"
-	@echo "... VirtualMemory2.i"
-	@echo "... VirtualMemory2.s"
+	@echo "... VirtualMemory.o"
+	@echo "... VirtualMemory.i"
+	@echo "... VirtualMemory.s"
 .PHONY : help
 
 

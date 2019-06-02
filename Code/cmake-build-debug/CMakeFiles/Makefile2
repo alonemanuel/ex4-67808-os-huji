@@ -59,45 +59,45 @@ RM = /usr/local/APP/jetbrains/clion/2018.2.1/bin/cmake/linux/bin/cmake -E remove
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code
+CMAKE_SOURCE_DIR = /cs/usr/tomka/Desktop/OS/virtual-memory-os/Code
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug
+CMAKE_BINARY_DIR = /cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/cmake-build-debug
 
 #=============================================================================
-# Target rules for target CMakeFiles/EX5.dir
+# Target rules for target CMakeFiles/EX4.dir
 
 # All Build rule for target.
-CMakeFiles/EX5.dir/all:
-	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/depend
-	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4 "Built target EX5"
-.PHONY : CMakeFiles/EX5.dir/all
+CMakeFiles/EX4.dir/all:
+	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/depend
+	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4 "Built target EX4"
+.PHONY : CMakeFiles/EX4.dir/all
 
 # Include target in all.
-all: CMakeFiles/EX5.dir/all
+all: CMakeFiles/EX4.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/EX5.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles 4
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/EX5.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/EX5.dir/rule
+CMakeFiles/EX4.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/cmake-build-debug/CMakeFiles 4
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/EX4.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /cs/usr/tomka/Desktop/OS/virtual-memory-os/Code/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/EX4.dir/rule
 
 # Convenience name for target.
-EX5: CMakeFiles/EX5.dir/rule
+EX4: CMakeFiles/EX4.dir/rule
 
-.PHONY : EX5
-
-# clean rule for target.
-CMakeFiles/EX5.dir/clean:
-	$(MAKE) -f CMakeFiles/EX5.dir/build.make CMakeFiles/EX5.dir/clean
-.PHONY : CMakeFiles/EX5.dir/clean
+.PHONY : EX4
 
 # clean rule for target.
-clean: CMakeFiles/EX5.dir/clean
+CMakeFiles/EX4.dir/clean:
+	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/clean
+.PHONY : CMakeFiles/EX4.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/EX4.dir/clean
 
 .PHONY : clean
 

@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/EX5.dir/VirtualMemory2.cpp.o CMakeFiles/EX5.dir/PhysicalMemory.cpp.o CMakeFiles/EX5.dir/SimpleTest.cpp.o  -o EX5 

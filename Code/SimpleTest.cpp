@@ -2,8 +2,15 @@
 
 #include <cstdio>
 #include <cassert>
+#include <iostream>
+
+using std::cout;
+using std::endl;
 
 int main(int argc, char **argv) {
+    cout << "Started test" << endl;
+
+
     VMinitialize();
     for (uint64_t i = 0; i < (2 * NUM_FRAMES); ++i) {
         printf("writing to %llu\n", (long long int) i);

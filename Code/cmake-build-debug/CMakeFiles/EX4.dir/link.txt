@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/EX4.dir/VirtualMemory.cpp.o CMakeFiles/EX4.dir/PhysicalMemory.cpp.o CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.o  -o EX4 

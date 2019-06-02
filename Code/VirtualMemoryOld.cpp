@@ -38,7 +38,7 @@ void partitionAddr(uint64_t p, uint64_t addrSegs[])
 
 bool isChildless(word_t curr_f)
 {
-	word_t child = nullptr;
+	word_t child = NULL;
 	for (int i = 0; i < PAGE_SIZE; ++i)
 	{
 		PMread(curr_f * PAGE_SIZE + i, &child);
