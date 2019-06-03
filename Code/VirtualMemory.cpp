@@ -1,183 +1,142 @@
-#include "VirtualMemory.h"
+#include "VirtualMemory2.h"
 #include "PhysicalMemory.h"
 #include <math.h>
 #include <iostream>
 
-
 using namespace std;
 
-void clearTable(uint64_t frameIndex) {
-    for (uint64_t i = 0; i < PAGE_SIZE; ++i) {
-        PMwrite(frameIndex * PAGE_SIZE + i, 0);
-    }
+void clearTable(uint64_t frameIndex)
+{
+	for (uint64_t i = 0; i < PAGE_SIZE; ++i)
+	{
+		PMwrite(frameIndex * PAGE_SIZE + i, 0);
+	}
 }
 
-void VMinitialize() {
-    // We are initializing the first frame (frame 0), which is the main-frame, which "is" the main page-table.
-    clearTable(0);
-}
-
-
-/**
- * Breaking the p part of the address down to segments.
- */
-void partitionAddr(uint64_t p, uint64_t addrSegs[]) {
-    uint64_t segWidth = (uint64_t) ((VIRTUAL_ADDRESS_WIDTH - OFFSET_WIDTH) / TABLES_DEPTH);
-    // TODO: waste of space to keep it 64?
-    uint64_t currAddr = p;
-    uint64_t i = 0;
-    while (i < TABLES_DEPTH) {
-        addrSegs[i] = currAddr & (uint64_t) pow(2, segWidth) - 1;
-        currAddr = currAddr >> segWidth;
-        ++i;
-    }
-}
-
-bool isChildless(word_t curr_f) {
-    word_t child = NULL;
-    for (int i = 0; i < PAGE_SIZE; ++i) {
-        PMread(curr_f * PAGE_SIZE + i, &child);
-        if (child != 0) {
-            return false;
-        }
-    }
-    return true;
+void VMinitialize()
+{
+	// We are initializing the first frame (frame 0), which is the main-frame, which "is" the main page-table.
+	clearTable(0);
 }
 
 /**
- * @brief (Potentially) updates max cyclic frame number and value.
- * @param curr_f
- * @param max_cycl_f
- * @param max_cycl_dist
- * @param p
+ * @brief Gets the offset and the page from a given virtual address.
+ * @param va virtual address
  */
-void updateToEvict(word_t *currFrameParent, word_t *currFrame, word_t *currPage, word_t
-*maxFrameParent, word_t *maxFrame, int *maxCyclDist, word_t *pageSwappedIn) {
-
-    int val1 = NUM_PAGES - abs(*pageSwappedIn - *currPage);
-    int val2 = abs(*pageSwappedIn - *currPage);
-    int currCyclDist = (val1 < val2) ? val1 : val2;
-
-    bool shouldUpdate = currCyclDist > *maxCyclDist;
-    if (shouldUpdate) {
-        *maxCyclDist = currCyclDist;
-        *maxFrame = *currFrame;
-        *maxFrameParent = *currFrameParent;
-    }
-}
-
-
-/**
- * @brief During going down the tree when translating an address, we have found an address pointing to 0, so now we must find the address pointing to it.
- * @param f2Find frame we are aiming to update.
- */
-void findFrame(word_t *target_parent, word_t *currFrame, word_t *currFrameParent, int
-currDepth, bool *didUpdate, word_t *max, word_t *maxCurrFrame, word_t
-               *maxFrameParent, uint64_t *pageSwappedIn, int *maxCyclDist, word_t *currPage) {
-    if (didUpdate)        // TODO: This is wasteful (all nodes are traversed). Find a better way.
-    {
-        return;
-    }
-    if (isChildless(*currFrame))          // Base case?
-    {
-        *target_parent = *currFrame;
-        *currFrameParent = 0;
-        *didUpdate = true;
-        return;
-    }
-    if (currDepth == TABLES_DEPTH)    // Is leaf?
-    {
-//        updateToEvict(currFrameParent, currFrame, currPage, maxFrameParent, maxCurrFrame, maxCyclDist, pageSwappedIn);
-        (*currPage)++;
-        return;
-    }
-    // else:
-    for (int i = 0; i < PAGE_SIZE; ++i) {
-        word_t child;    // TODO: Avoid creating many vars in the recursion tree.
-        PMread((*currFrame) * PAGE_SIZE + i, &child);
-        if (child != 0) {
-            if (child > *max) {
-                *max = child;
-            }
-
-//			findFrame(target_parent, curr_f, &child, currDepth + 1, didUpdate, max);
-        }
-    }
-
-}
-
-
-void
-evictFrame(word_t *currAddr, word_t *max_cycl_f, word_t *max_cycl_parent, word_t frameToEvict, word_t pageToEvict) {
-    PMevict((uint64_t) frameToEvict, (uint64_t) pageToEvict);
-    PMwrite((uint64_t) frameToEvict,
-            0);   // TODO: Make sure the correct cell is updated (maybe send i (as in the offset)?)
-}
-
-void setFrame(word_t *currAddr, word_t *parent, word_t *didUpdate, word_t *max_f, word_t
-*max_cycl_f, word_t *max_cycl_parent) {
-    if (*max_f < NUM_FRAMES) {
-        *currAddr = *max_f + 1;
-    } else {
-//        evictFrame(currAddr, max_cycl_f, max_cycl_parent);
-    }
+void getOffsetAndPage(uint64_t va, uint64_t *offset, uint64_t *page)
+{
+	cout << "Us: Getting offset and page for " << va << endl;
+	*offset = va & ((1 << OFFSET_WIDTH) - 1);
+	*page = va >> OFFSET_WIDTH;
+	cout << "Us: Got offset=" << *offset << ", page=" << *page << endl;
 }
 
 /**
- * @brief Translate a virtual address to a physical one.
- * @param va
- * @return
+ * @brief Gets word in the given offset in the given physical address and puts into word.
  */
-uint64_t virt2phys(uint64_t va) {
-    cout << "Us: Entered virt2phys" << endl;
-
-    uint64_t offset, p;
-    uint64_t addrSegs[TABLES_DEPTH];
-
-    offset = va & (uint64_t) pow(2, OFFSET_WIDTH) - 1;    // TODO: Pow operation is costly
-    p = va >> OFFSET_WIDTH;
-    // Partition the address into segments
-    partitionAddr(p, addrSegs);
-
-    int depth = TABLES_DEPTH - 1;
-    word_t currAddr = 0;
-
-    // "Go down the tree" and retrieve the address
-    while (depth >= 0) {
-        cout << "Us: Traversing the tree" << endl;
-
-        PMread(currAddr * PAGE_SIZE + addrSegs[depth], &currAddr);
-        if (currAddr == 0) {
-            bool didUpdate = false;
-            word_t mainFrame = 0, curr_f = 0, max_f = 0, max_cycl_f = 0, max_cycl_parent = 0, curr_page = 0;
-            int max_cycl_val = 0;
-            findFrame(&currAddr, &mainFrame, &curr_f, 0, &didUpdate, &max_f, &max_cycl_f,
-                      &max_cycl_parent, &p, &max_cycl_val, &curr_page);
-            //
-            if (!didUpdate) {
-//                setFrame(&currAddr, &didUpdate, &max_f)
-            }
-            PMwrite((uint64_t) currAddr * PAGE_SIZE + addrSegs[depth - 1], mainFrame);
-
-        }
-        --depth;
-    }
-    return currAddr * PAGE_SIZE + offset;
+void readWord(uint64_t baseAddress, uint64_t offset, word_t *word)
+{
+	cout << "Us: Reading word at base=" << baseAddress << ", offset=" << offset << endl;
+	PMread(baseAddress * PAGE_SIZE + offset, word);
+	cout << "Us: Read: " << *word << endl;
 }
 
-
-// TODO: how do we check if the process succeeded and when to return 0?
-int VMread(uint64_t virtualAddress, word_t *value) {
-    cout << "Us: Entered VMread" << endl;
-    uint64_t physicalAddr = virt2phys(virtualAddress);
-    PMread(physicalAddr, value);
-    return 1;
+/**
+ * @brief Writes a word to the given address given by its base address and offset.
+ */
+void writeWord(uint64_t baseAddress, uint64_t offset, word_t word)
+{
+	cout << "Us: Writing word at base=" << baseAddress << ", offset=" << offset << endl;
+	PMwrite(baseAddress * PAGE_SIZE + offset, word);
+	cout << "Us: Wrote: " << word << endl;
 }
 
+/**
+ * @brief Gets the relative offset defined by the original page and the current depth.
+ */
+void getOffsetByDepth(uint64_t page, int depth, uint64_t *offset)
+{
+	cout << "Us: Getting offset by depth for page=" << page << ", depth=" << depth << endl;
+	uint64_t segWidth = (uint64_t) ((VIRTUAL_ADDRESS_WIDTH - OFFSET_WIDTH) / TABLES_DEPTH);
+	uint64_t shiftLeft = segWidth * depth;
+	uint64_t shiftRight = VIRTUAL_ADDRESS_WIDTH - segWidth;
+	*offset = (page << shiftLeft) >> shiftRight;
+	cout << "Us: Got: " << *offset << endl;
+}
 
-int VMwrite(uint64_t virtualAddress, word_t value) {
-    uint64_t physicalAddr = virt2phys(virtualAddress);
-//    PMwrite(physicalAddr, value);
-    return 1;
+/**
+ * @brief Opens a frame at the given address.
+ * @param frameToOpen
+ */
+void openFrame(uint64_t *frameToOpen)
+{
+}
+
+/**
+ * @brief Gets the word stored in the physical address represented by the virtual address.
+ * @param va virtual address
+ * @param depth depth in the frame-tree
+ * @param value container for the output
+ */
+void getNewAddr(uint64_t page, int depth, word_t *oldAddr)
+{
+	cout << "Us: Getting new address for " << *oldAddr << endl;
+	uint64_t offset, openedFrame;
+	word_t newAddr;
+	getOffsetByDepth(page, depth, &offset);
+	readWord(*oldAddr, offset, &newAddr);
+	if (newAddr == 0)
+	{
+		openFrame(&openedFrame);
+		clearTable(openedFrame);
+		writeWord(*oldAddr, offset, openedFrame);
+		*oldAddr = newAddr;
+	}
+	cout << "Us: Got new address for " << *oldAddr << endl;
+}
+
+/**
+ * @brief Translates a virtual address to its coressponding physical address.
+ * @param va virtual address
+ * @return physical address
+ */
+uint64_t translateVirtAddr(uint64_t va)
+{
+	cout << "Us: Entered translateVirtAddr with va=" << va << endl;
+	uint64_t offset, page;
+	word_t output;
+	getOffsetAndPage(va, &offset, &page);
+
+	int depth = 0;
+	word_t currAddr = 0;
+	while (depth < TABLES_DEPTH)
+	{
+		cout << "Us: In depth=" << depth << endl;
+		getNewAddr(page, depth, &currAddr);
+		depth++;
+	}
+	readWord(currAddr, offset, &output);
+	return output;
+}
+
+/**
+ * @brief Reads a word from the given virtual address.
+ */
+int VMread(uint64_t virtualAddress, word_t *value)
+{
+	cout << "Us: Entered VMread" << endl;
+	uint64_t physicalAddr = translateVirtAddr(virtualAddress);
+	PMread(physicalAddr, value);
+	return 1;
+}
+
+/**
+ * @brief Writes a word to the given virtual address.
+ */
+int VMwrite(uint64_t virtualAddress, word_t value)
+{
+	cout << "Us: Entered VMwrite" << endl;
+	uint64_t physicalAddr = translateVirtAddr(virtualAddress);
+	return 1;
 }
 

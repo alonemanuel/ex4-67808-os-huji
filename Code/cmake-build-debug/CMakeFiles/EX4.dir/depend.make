@@ -4,7 +4,7 @@
 CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.o: ../FlowExampleSimulation.cpp
 CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.o: ../MemoryConstants.h
 CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.o: ../PhysicalMemory.h
-CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.o: ../VirtualMemory.h
+CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.o: ../VirtualMemory2.h
 
 CMakeFiles/EX4.dir/PhysicalMemory.cpp.o: ../MemoryConstants.h
 CMakeFiles/EX4.dir/PhysicalMemory.cpp.o: ../PhysicalMemory.cpp
@@ -13,5 +13,5 @@ CMakeFiles/EX4.dir/PhysicalMemory.cpp.o: ../PhysicalMemory.h
 CMakeFiles/EX4.dir/VirtualMemory.cpp.o: ../MemoryConstants.h
 CMakeFiles/EX4.dir/VirtualMemory.cpp.o: ../PhysicalMemory.h
 CMakeFiles/EX4.dir/VirtualMemory.cpp.o: ../VirtualMemory.cpp
-CMakeFiles/EX4.dir/VirtualMemory.cpp.o: ../VirtualMemory.h
+CMakeFiles/EX4.dir/VirtualMemory.cpp.o: ../VirtualMemory2.h
 
