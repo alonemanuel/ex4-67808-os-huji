@@ -2,6 +2,7 @@
 #include "PhysicalMemory.h"
 #include <math.h>
 #include <iostream>
+#include <bitset>
 
 using namespace std;
 
@@ -31,10 +32,10 @@ void VMinitialize()
  */
 void getOffsetAndPage(uint64_t va, uint64_t *offset, uint64_t *page)
 {
-	cout << "Us: Getting offset and page for " << va << endl;
+	cout << "Us: Getting offset and page for " << va << "=" << bitset<4>(va) << endl;
 	*offset = va & ((1 << OFFSET_WIDTH) - 1);
 	*page = va >> OFFSET_WIDTH;
-	cout << "Us: Got offset=" << *offset << ", page=" << *page << endl;
+	cout << "Us: Got offset=" << *offset << ", page=" << *page << "=" << bitset<4>(*page) << endl;
 }
 
 /**
@@ -60,28 +61,47 @@ void writeWord(uint64_t baseAddress, uint64_t offset, word_t word)
 /**
  * @brief Gets the relative offset defined by the original page and the current depth.
  */
-void getOffsetByDepth(uint64_t page, int depth, uint64_t *offset)
+void getBaseAndOffset(uint64_t page, int depth, uint64_t *base, uint64_t *offset)
 {
-	cout << "Us: Getting offset by depth for page=" << page << ", depth=" << depth << endl;
+	cout << "Us: Getting base and offset by depth for page=" << page << "=" << bitset<4>(page) <<
+		 ", "
+		 "depth="
+		 << depth << endl;
 	uint64_t segWidth = (uint64_t) ((VIRTUAL_ADDRESS_WIDTH - OFFSET_WIDTH) / TABLES_DEPTH);
-	uint64_t shiftLeft = segWidth * depth;
-	uint64_t shiftRight = VIRTUAL_ADDRESS_WIDTH - segWidth;
-	*offset = (page << shiftLeft) >> shiftRight;
-	cout << "Us: Got: " << *offset << endl;
+	uint64_t shiftLeft = segWidth * (TABLES_DEPTH-depth);
+	uint64_t shiftRight = segWidth * (TABLES_DEPTH - depth-1);
+	cout << "Us: leftShift=" << shiftLeft << endl;
+	cout << "Us: rightShift=" << shiftRight << endl;
+	cout << "Us: after left: " << bitset<8>((page & ((1 << shiftLeft) - 1)));
+	*offset = (page & ((1 << shiftLeft) - 1)) >> shiftRight;
+	*base = depth;
+	cout << "Us: Got offset " << *offset << ", base=" << *base << "=" << bitset<4>(*base) << endl;
+}
+
+/**
+ * @brief Updates the max frame by putting it in maxFrame
+ */
+void updateMaxFrame(uint64_t *maxFrame, uint64_t frame)
+{
+	*maxFrame = max(*maxFrame, frame);
 }
 
 /**
  * @brief Gets the maximum frame index (that is open).
  */
-void getMaxFrame(uint64_t *maxFrame)
+void getMaxFrame(uint64_t currFrameAddr, uint64_t *maxFrame)
 {
 	cout << "Us: Getting max frame" << endl;
 	bool foundMax = false;
 	word_t currWord;
-	for (int i = 0; i < PAGE_SIZE; ++i)
+	for (uint64_t i = 0; i < PAGE_SIZE; ++i)
 	{
-
-		readWord(currFrame, i, currWord);
+		readWord(currFrameAddr, i, &currWord);
+		updateMaxFrame(maxFrame, currWord);
+		if (currWord != 0)
+		{
+			getMaxFrame(currWord, maxFrame);
+		}
 	}
 }
 
@@ -91,9 +111,19 @@ void getMaxFrame(uint64_t *maxFrame)
  */
 void openFrame(uint64_t *frameToOpen)
 {
-	cout<<"Us: Opening frame"<<endl;
+	cout << "Us: Opening frame" << endl;
 	uint64_t maxFrame;
-	getMaxFrame(&maxFrame);
+	uint64_t mainFrame = 0;
+	getMaxFrame(mainFrame, &maxFrame);
+	cout << "Us: Max frame=" << maxFrame << endl;
+	if (maxFrame + 1 < NUM_FRAMES)
+	{
+		*frameToOpen = maxFrame + 1;
+	}
+	else
+	{
+		cout << "Us: Should swap" << endl;
+	}
 }
 
 /**
@@ -102,21 +132,25 @@ void openFrame(uint64_t *frameToOpen)
  * @param depth depth in the frame-tree
  * @param value container for the output
  */
-void getNewAddr(uint64_t page, int depth, word_t *oldAddr)
+void getNewAddr(uint64_t page, int depth, word_t *oldAddr, uint64_t *frameIdx)
 {
-	cout << "Us: Getting new address for " << *oldAddr << endl;
-	uint64_t offset, openedFrame;
+	cout << "Us: Getting new address for page=" << page << "=" << bitset<4>(page) << ", depth="
+		 << depth <<
+		 endl;
+	uint64_t base, offset, openedFrame;
 	word_t newAddr;
-	getOffsetByDepth(page, depth, &offset);
-	readWord(*oldAddr, offset, &newAddr);
+	getBaseAndOffset(page, depth, &base, &offset);
+	readWord(base, offset, &newAddr);
+	*frameIdx = newAddr;
 	if (newAddr == 0)
 	{
 		openFrame(&openedFrame);
+		*frameIdx = openedFrame;
 		clearTable(openedFrame);
-		writeWord(*oldAddr, offset, openedFrame);
-		*oldAddr = newAddr;
+		writeWord(base, offset, openedFrame);
 	}
-	cout << "Us: Got new address for " << *oldAddr << endl;
+	*oldAddr = newAddr;
+	cout << "Us: Got new frame for " << *oldAddr << endl;
 }
 
 /**
@@ -132,14 +166,21 @@ uint64_t translateVirtAddr(uint64_t va)
 	getOffsetAndPage(va, &offset, &page);
 
 	int depth = 0;
+	uint64_t frameIdx;
 	word_t currAddr = 0;
 	while (depth < TABLES_DEPTH)
 	{
+		cout << endl;
 		cout << "Us: In depth=" << depth << endl;
-		getNewAddr(page, depth, &currAddr);
+		getNewAddr(page, depth, &currAddr, &frameIdx);
 		depth++;
 	}
-	readWord(currAddr, offset, &output);
+	if (currAddr == 0)
+	{
+		PMrestore(frameIdx, page);
+		output= (frameIdx << OFFSET_WIDTH) | offset;
+	}
+	cout << "Us: physical address=" << output << endl;
 	return output;
 }
 
@@ -161,6 +202,7 @@ int VMwrite(uint64_t virtualAddress, word_t value)
 {
 	cout << "Us: Entered VMwrite" << endl;
 	uint64_t physicalAddr = translateVirtAddr(virtualAddress);
+	PMwrite(physicalAddr, value);
 	return 1;
 }
 

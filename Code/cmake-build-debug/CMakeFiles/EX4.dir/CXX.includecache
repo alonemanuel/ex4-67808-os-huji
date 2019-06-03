@@ -6,27 +6,29 @@
 
 #IncludeRegexTransform: 
 
-/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/MemoryConstants.h
+/cygdrive/d/OS/Ex4/Code/MemoryConstants.h
 climits
 -
 stdint.h
 -
 
-/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/PhysicalMemory.h
+/cygdrive/d/OS/Ex4/Code/PhysicalMemory.h
 MemoryConstants.h
-/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/MemoryConstants.h
+/cygdrive/d/OS/Ex4/Code/MemoryConstants.h
 
-/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/VirtualMemory.cpp
+/cygdrive/d/OS/Ex4/Code/VirtualMemory.cpp
 VirtualMemory2.h
-/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/VirtualMemory2.h
+/cygdrive/d/OS/Ex4/Code/VirtualMemory2.h
 PhysicalMemory.h
-/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/PhysicalMemory.h
+/cygdrive/d/OS/Ex4/Code/PhysicalMemory.h
 math.h
 -
 iostream
 -
+bitset
+-
 
-/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/VirtualMemory2.h
+/cygdrive/d/OS/Ex4/Code/VirtualMemory2.h
 MemoryConstants.h
-/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/MemoryConstants.h
+/cygdrive/d/OS/Ex4/Code/MemoryConstants.h
 
