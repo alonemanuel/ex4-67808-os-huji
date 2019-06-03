@@ -5,6 +5,9 @@
 
 using namespace std;
 
+/**
+ * @brief Clear table at given frame
+ */
 void clearTable(uint64_t frameIndex)
 {
 	for (uint64_t i = 0; i < PAGE_SIZE; ++i)
@@ -13,6 +16,9 @@ void clearTable(uint64_t frameIndex)
 	}
 }
 
+/**
+ * @brief Initialize virtual address space
+ */
 void VMinitialize()
 {
 	// We are initializing the first frame (frame 0), which is the main-frame, which "is" the main page-table.
@@ -65,11 +71,29 @@ void getOffsetByDepth(uint64_t page, int depth, uint64_t *offset)
 }
 
 /**
+ * @brief Gets the maximum frame index (that is open).
+ */
+void getMaxFrame(uint64_t *maxFrame)
+{
+	cout << "Us: Getting max frame" << endl;
+	bool foundMax = false;
+	word_t currWord;
+	for (int i = 0; i < PAGE_SIZE; ++i)
+	{
+
+		readWord(currFrame, i, currWord);
+	}
+}
+
+/**
  * @brief Opens a frame at the given address.
  * @param frameToOpen
  */
 void openFrame(uint64_t *frameToOpen)
 {
+	cout<<"Us: Opening frame"<<endl;
+	uint64_t maxFrame;
+	getMaxFrame(&maxFrame);
 }
 
 /**
