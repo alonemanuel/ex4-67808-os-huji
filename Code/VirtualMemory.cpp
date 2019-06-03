@@ -68,8 +68,8 @@ void getBaseAndOffset(uint64_t page, int depth, uint64_t *base, uint64_t *offset
 		 "depth="
 		 << depth << endl;
 	uint64_t segWidth = (uint64_t) ((VIRTUAL_ADDRESS_WIDTH - OFFSET_WIDTH) / TABLES_DEPTH);
-	uint64_t shiftLeft = segWidth * (TABLES_DEPTH-depth);
-	uint64_t shiftRight = segWidth * (TABLES_DEPTH - depth-1);
+	uint64_t shiftLeft = segWidth * (TABLES_DEPTH - depth);
+	uint64_t shiftRight = segWidth * (TABLES_DEPTH - depth - 1);
 	cout << "Us: leftShift=" << shiftLeft << endl;
 	cout << "Us: rightShift=" << shiftRight << endl;
 	cout << "Us: after left: " << bitset<8>((page & ((1 << shiftLeft) - 1)));
@@ -86,10 +86,12 @@ void updateMaxFrame(uint64_t *maxFrame, uint64_t frame)
 	*maxFrame = max(*maxFrame, frame);
 }
 
+
+
 /**
  * @brief Gets the maximum frame index (that is open).
  */
-void getMaxFrame(uint64_t currFrameAddr, uint64_t *maxFrame)
+void getMaxFrame(uint64_t currFrameAddr, uint64_t *maxFrame, int depth)
 {
 	cout << "Us: Getting max frame" << endl;
 	bool foundMax = false;
@@ -98,9 +100,10 @@ void getMaxFrame(uint64_t currFrameAddr, uint64_t *maxFrame)
 	{
 		readWord(currFrameAddr, i, &currWord);
 		updateMaxFrame(maxFrame, currWord);
-		if (currWord != 0)
+		cout<<"Us: depth="<<depth<<endl;
+		if (currWord != 0 && (depth <TABLES_DEPTH-1))
 		{
-			getMaxFrame(currWord, maxFrame);
+			getMaxFrame(currWord, maxFrame, depth+1);
 		}
 	}
 }
@@ -114,7 +117,7 @@ void openFrame(uint64_t *frameToOpen)
 	cout << "Us: Opening frame" << endl;
 	uint64_t maxFrame;
 	uint64_t mainFrame = 0;
-	getMaxFrame(mainFrame, &maxFrame);
+	getMaxFrame(mainFrame, &maxFrame, 0);
 	cout << "Us: Max frame=" << maxFrame << endl;
 	if (maxFrame + 1 < NUM_FRAMES)
 	{
@@ -178,8 +181,8 @@ uint64_t translateVirtAddr(uint64_t va)
 	if (currAddr == 0)
 	{
 		PMrestore(frameIdx, page);
-		output= (frameIdx << OFFSET_WIDTH) | offset;
 	}
+	output = (frameIdx << OFFSET_WIDTH) | offset;
 	cout << "Us: physical address=" << output << endl;
 	return output;
 }
