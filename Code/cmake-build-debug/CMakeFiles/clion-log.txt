@@ -1,6 +1,6 @@
-/usr/local/APP/jetbrains/clion/2018.2.1/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code
--- The C compiler identification is GNU 8.2.0
--- The CXX compiler identification is GNU 8.2.0
+/home/alonemanuel/Downloads/clion-2019.1.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/alonemanuel/Year2/67808_os/Ex4/Code
+-- The C compiler identification is GNU 8.3.0
+-- The CXX compiler identification is GNU 8.3.0
 -- Check for working C compiler: /usr/bin/cc
 -- Check for working C compiler: /usr/bin/cc -- works
 -- Detecting C compiler ABI info
@@ -15,4 +15,4 @@
 -- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug
+-- Build files have been written to: /home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug

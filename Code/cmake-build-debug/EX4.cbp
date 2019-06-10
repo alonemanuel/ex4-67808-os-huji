@@ -8,38 +8,28 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug"/>
+				<Option working_dir="/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug"/>
+				<Option working_dir="/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="EX4">
-				<Option output="/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/EX4" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug"/>
+				<Option output="/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug/EX4" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -54,15 +44,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 EX4"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 EX4"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="EX4/fast">
-				<Option output="/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/EX4" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug"/>
+				<Option output="/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug/EX4" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -77,32 +67,42 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 EX4/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 EX4/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/FlowExampleSimulation.cpp">
+		<Unit filename="/home/alonemanuel/Year2/67808_os/Ex4/Code/FlowExampleSimulation.cpp">
 			<Option target="EX4"/>
 		</Unit>
-		<Unit filename="/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/MemoryConstants.h">
+		<Unit filename="/home/alonemanuel/Year2/67808_os/Ex4/Code/MemoryConstants.h">
 			<Option target="EX4"/>
 		</Unit>
-		<Unit filename="/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/PhysicalMemory.cpp">
+		<Unit filename="/home/alonemanuel/Year2/67808_os/Ex4/Code/PhysicalMemory.cpp">
 			<Option target="EX4"/>
 		</Unit>
-		<Unit filename="/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/PhysicalMemory.h">
+		<Unit filename="/home/alonemanuel/Year2/67808_os/Ex4/Code/PhysicalMemory.h">
 			<Option target="EX4"/>
 		</Unit>
-		<Unit filename="/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/VirtualMemory.cpp">
+		<Unit filename="/home/alonemanuel/Year2/67808_os/Ex4/Code/VirtualMemory.cpp">
 			<Option target="EX4"/>
 		</Unit>
-		<Unit filename="/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/VirtualMemory2.h">
+		<Unit filename="/home/alonemanuel/Year2/67808_os/Ex4/Code/VirtualMemory2.h">
 			<Option target="EX4"/>
 		</Unit>
-		<Unit filename="/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/CMakeLists.txt">
+		<Unit filename="/home/alonemanuel/Year2/67808_os/Ex4/Code/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

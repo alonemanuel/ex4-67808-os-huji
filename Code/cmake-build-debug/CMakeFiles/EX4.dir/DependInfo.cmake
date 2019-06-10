@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/FlowExampleSimulation.cpp" "/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.o"
-  "/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/PhysicalMemory.cpp" "/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles/EX4.dir/PhysicalMemory.cpp.o"
-  "/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/VirtualMemory.cpp" "/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles/EX4.dir/VirtualMemory.cpp.o"
+  "/home/alonemanuel/Year2/67808_os/Ex4/Code/FlowExampleSimulation.cpp" "/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug/CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.o"
+  "/home/alonemanuel/Year2/67808_os/Ex4/Code/PhysicalMemory.cpp" "/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug/CMakeFiles/EX4.dir/PhysicalMemory.cpp.o"
+  "/home/alonemanuel/Year2/67808_os/Ex4/Code/VirtualMemory.cpp" "/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug/CMakeFiles/EX4.dir/VirtualMemory.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
