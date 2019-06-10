@@ -141,7 +141,7 @@ void getNewAddr(uint64_t page, int depth, word_t *prevAddr, word_t *currAddr, ui
 	uint64_t base, offset, openedFrame;
 	word_t newAddr;
 	getBaseAndOffset(page, depth, &base, &offset);
-	readWord(base, offset, &newAddr);
+	readWord(*prevAddr, offset, &newAddr);
 	*frameIdx = newAddr;
 	if (newAddr == 0)
 	{
