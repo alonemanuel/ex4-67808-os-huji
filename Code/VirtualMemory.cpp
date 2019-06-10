@@ -87,7 +87,6 @@ void updateMaxFrame(uint64_t *maxFrame, uint64_t frame)
 }
 
 
-
 /**
  * @brief Gets the maximum frame index (that is open).
  */
@@ -100,10 +99,10 @@ void getMaxFrame(uint64_t currFrameAddr, uint64_t *maxFrame, int depth)
 	{
 		readWord(currFrameAddr, i, &currWord);
 		updateMaxFrame(maxFrame, currWord);
-		cout<<"Us: depth="<<depth<<endl;
-		if (currWord != 0 && (depth <TABLES_DEPTH-1))
+		cout << "Us: depth=" << depth << endl;
+		if (currWord != 0 && (depth < TABLES_DEPTH - 1))
 		{
-			getMaxFrame(currWord, maxFrame, depth+1);
+			getMaxFrame(currWord, maxFrame, depth + 1);
 		}
 	}
 }
@@ -135,11 +134,10 @@ void openFrame(uint64_t *frameToOpen)
  * @param depth depth in the frame-tree
  * @param value container for the output
  */
-void getNewAddr(uint64_t page, int depth, word_t *oldAddr, uint64_t *frameIdx)
+void getNewAddr(uint64_t page, int depth, word_t *prevAddr, word_t *currAddr, uint64_t *frameIdx)
 {
 	cout << "Us: Getting new address for page=" << page << "=" << bitset<4>(page) << ", depth="
-		 << depth <<
-		 endl;
+		 << depth << ", prevAdd=" << *prevAddr << endl;
 	uint64_t base, offset, openedFrame;
 	word_t newAddr;
 	getBaseAndOffset(page, depth, &base, &offset);
@@ -150,10 +148,12 @@ void getNewAddr(uint64_t page, int depth, word_t *oldAddr, uint64_t *frameIdx)
 		openFrame(&openedFrame);
 		*frameIdx = openedFrame;
 		clearTable(openedFrame);
-		writeWord(base, offset, openedFrame);
+		writeWord(*prevAddr, offset, openedFrame);
+		*prevAddr = openedFrame;
 	}
-	*oldAddr = newAddr;
-	cout << "Us: Got new frame for " << *oldAddr << endl;
+	*prevAddr = *frameIdx;
+	*currAddr = newAddr;
+	cout << "Us: Got new frame for " << *currAddr << endl;
 }
 
 /**
@@ -171,11 +171,12 @@ uint64_t translateVirtAddr(uint64_t va)
 	int depth = 0;
 	uint64_t frameIdx;
 	word_t currAddr = 0;
+	word_t prevAddr = 0;
 	while (depth < TABLES_DEPTH)
 	{
 		cout << endl;
 		cout << "Us: In depth=" << depth << endl;
-		getNewAddr(page, depth, &currAddr, &frameIdx);
+		getNewAddr(page, depth, &prevAddr, &currAddr, &frameIdx);
 		depth++;
 	}
 	if (currAddr == 0)
