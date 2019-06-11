@@ -94,6 +94,20 @@ void updateMaxPage(uint64_t *maxPage, uint64_t page)
 	*maxPage = max(*maxPage, page);
 }
 
+uint64_t getCurrPage(uint64_t oldPage, uint64_t depth, uint64_t offset)
+{
+	cout << "Getting new page for oldPage=" << oldPage << ", offset=" << offset << endl;
+	uint64_t offseted = oldPage << (int)log2(PAGE_SIZE);    // TODO: Check effect of signed
+	cout<<(int)log2(PAGE_SIZE)<<endl;
+	cout << "Offseted: " << offseted <<"="<<bitset
+	<4>(offseted)<<endl;
+
+	uint64_t ret = offseted | offset;
+	cout << "Got: " << ret <<"="<<bitset
+	<4>(ret)<<endl;
+	return ret;
+}
+
 /**
  * @brief Gets the maximum frame index (that is open).
  */
@@ -110,11 +124,13 @@ void getMaxFrame(uint64_t currFrameAddr, uint64_t *maxFrame, int depth, uint64_t
 		if (currWord != 0)
 		{
 			currPage = getCurrPage(currPage, depth, i);
-			if (depth < TABLES_DEPTH - 1)) {
-				getMaxFrame(currWord, maxFrame, depth + 1);
+			if (depth < TABLES_DEPTH - 1)
+			{
+				getMaxFrame(currWord, maxFrame, depth + 1, currPage, maxPage);
 			}
-			else{
-				updateMaxFrame(maxPage, *currPage);
+			else
+			{
+				updateMaxPage(maxPage, currPage);
 			}
 		}
 	}
@@ -129,7 +145,8 @@ void openFrame(uint64_t *frameToOpen)
 	cout << "Us: Opening frame" << endl;
 	uint64_t maxFrame = 0;    // MOTHERFUCKERRRRRR
 	uint64_t mainFrame = 0;
-	getMaxFrame(mainFrame, &maxFrame, 0);
+	uint64_t maxPage = 0;
+	getMaxFrame(mainFrame, &maxFrame, 0, 0, &maxPage);
 	cout << "Us: Max frame=" << maxFrame << endl;
 	if (maxFrame + 1 < NUM_FRAMES)
 	{
@@ -226,87 +243,87 @@ int VMwrite(uint64_t virtualAddress, word_t value)
 
 ////////**************////////////////////
 
-/**
- * @brief (Potentially) updates max cyclic frame number and value.
- * @param curr_f
- * @param max_cycl_f
- * @param max_cycl_dist
- * @param p
- */
-void updateToEvict(word_t *currFrameParent, word_t *currFrame, word_t *currPage, word_t
-*maxFrameParent, word_t *maxFrame, int *maxCyclDist, word_t *pageSwappedIn)
-{
-	int val1 = NUM_PAGES - abs(*pageSwappedIn - currPage);
-	int val2 = abs(*pageSwappedIn - currPage);
-	int currCyclDist = (val1 < val2) ? val1 : val2;
-
-	bool shouldUpdate = currCyclDist > *maxCyclDist;
-	if (shouldUpdate)
-	{
-		*maxCyclDist = currCyclDist;
-		*maxFrame = *currFrame;
-		*maxFrameParent = *currFrameParent;
-	}
-}
-
-/**
- * @brief During going down the tree when translating an address, we have found an address pointing to 0, so now we must find the address pointing to it.
- * @param f2Find frame we are aiming to update.
- */
-void findFrame(word_t *target_parent, word_t *curr_parent, word_t *curr_f, word_t *curr_parent, int
-currDepth, bool *didUpdate, word_t *max, word_t *max_cycl_f, int *max_cycl_val, word_t
-			   *max_cycl_parent, int pageSwappedIn, int currPage)
-{
-	if (didUpdate)        // TODO: This is wasteful (all nodes are traversed). Find a better way.
-	{
-		return;
-	}
-	if (isChildless(curr_f))          // Base case?
-	{
-		*target_parent = curr_f;
-		*curr_parent = 0;
-		*didUpdate = true;
-		return;
-	}
-	if (currDepth == TABLES_DEPTH)    // Is leaf?
-	{
-		updateToEvict(currFrameParent, currFrame, currPage, maxFrameParent, maxCurrFrame,
-					  pageSwappedIn)
-		currPage++;
-		return;
-	}
-	// else:
-	for (int i = 0; i < PAGE_SIZE; ++i)
-	{
-		word_t child;    // TODO: Avoid creating many vars in the recursion tree.
-		PMread((*curr_f) * PAGE_SIZE + i, &child);
-		if (child != 0)
-		{
-			if (child > *max)
-			{
-				*max = child;
-			}
-
-//			findFrame(target_parent, curr_f, &child, currDepth + 1, didUpdate, max);
-		}
-	}
-
-}
-
-void evictFrame(word_t *currAddr, word_t *max_cycl_f, word_t *max_cycl_parent)
-{
-	PMevict(frameToEvict, pageToEvict);
-	PMwrite()
-}
-
-void setFrame(word_t *currAddr, word_t *parent, word_t *didUpdate, word_t *max_f, word_t
-*max_cycl_f, word_t *max_cycl_parent)
-{
-	if (*max_f < NUM_FRAMES)
-	{
-		*currAddr = max_f + 1;
-	}
-	else
-	{
-		evictFrame(currAddr, max_cycl_f, max_cycl_parent);
-
+///**
+// * @brief (Potentially) updates max cyclic frame number and value.
+// * @param curr_f
+// * @param max_cycl_f
+// * @param max_cycl_dist
+// * @param p
+// */
+//void updateToEvict(word_t *currFrameParent, word_t *currFrame, word_t *currPage, word_t
+//*maxFrameParent, word_t *maxFrame, int *maxCyclDist, word_t *pageSwappedIn)
+//{
+//	int val1 = NUM_PAGES - abs(*pageSwappedIn - currPage);
+//	int val2 = abs(*pageSwappedIn - currPage);
+//	int currCyclDist = (val1 < val2) ? val1 : val2;
+//
+//	bool shouldUpdate = currCyclDist > *maxCyclDist;
+//	if (shouldUpdate)
+//	{
+//		*maxCyclDist = currCyclDist;
+//		*maxFrame = *currFrame;
+//		*maxFrameParent = *currFrameParent;
+//	}
+//}
+//
+///**
+// * @brief During going down the tree when translating an address, we have found an address pointing to 0, so now we must find the address pointing to it.
+// * @param f2Find frame we are aiming to update.
+// */
+//void findFrame(word_t *target_parent, word_t *curr_parent, word_t *curr_f, word_t *curr_parent, int
+//currDepth, bool *didUpdate, word_t *max, word_t *max_cycl_f, int *max_cycl_val, word_t
+//			   *max_cycl_parent, int pageSwappedIn, int currPage)
+//{
+//	if (didUpdate)        // TODO: This is wasteful (all nodes are traversed). Find a better way.
+//	{
+//		return;
+//	}
+//	if (isChildless(curr_f))          // Base case?
+//	{
+//		*target_parent = curr_f;
+//		*curr_parent = 0;
+//		*didUpdate = true;
+//		return;
+//	}
+//	if (currDepth == TABLES_DEPTH)    // Is leaf?
+//	{
+//		updateToEvict(currFrameParent, currFrame, currPage, maxFrameParent, maxCurrFrame,
+//					  pageSwappedIn)
+//		currPage++;
+//		return;
+//	}
+//	// else:
+//	for (int i = 0; i < PAGE_SIZE; ++i)
+//	{
+//		word_t child;    // TODO: Avoid creating many vars in the recursion tree.
+//		PMread((*curr_f) * PAGE_SIZE + i, &child);
+//		if (child != 0)
+//		{
+//			if (child > *max)
+//			{
+//				*max = child;
+//			}
+//
+////			findFrame(target_parent, curr_f, &child, currDepth + 1, didUpdate, max);
+//		}
+//	}
+//
+//}
+//
+//void evictFrame(word_t *currAddr, word_t *max_cycl_f, word_t *max_cycl_parent)
+//{
+//	PMevict(frameToEvict, pageToEvict);
+//	PMwrite()
+//}
+//
+//void setFrame(word_t *currAddr, word_t *parent, word_t *didUpdate, word_t *max_f, word_t
+//*max_cycl_f, word_t *max_cycl_parent)
+//{
+//	if (*max_f < NUM_FRAMES)
+//	{
+//		*currAddr = max_f + 1;
+//	}
+//	else
+//	{
+//		evictFrame(currAddr, max_cycl_f, max_cycl_parent);
+//
