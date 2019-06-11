@@ -1,6 +1,6 @@
 #include "VirtualMemory2.h"
 #include "PhysicalMemory.h"
-#include <math.h>
+#include <cmath>
 #include <iostream>
 #include <bitset>
 
@@ -91,25 +91,26 @@ void updateMaxFrame(uint64_t *maxFrame, uint64_t frame)
  */
 uint64_t getCyclicVal(uint64_t targetPage, uint64_t currPage)
 {
-	uint64_t val1 = NUM_PAGES - std::abs(targetPage - currPage);
-	uint64_t  val2 = abs(targetPage - currPage);
-	uint64_t currCyclDist = (val1 < val2) ? val1 : val2;
+	cout << "Getting cycl val" << endl;
+	int val1 = NUM_PAGES - abs((int) (targetPage - currPage));
+	int val2 = abs((int) (targetPage - currPage));
+	uint64_t currCyclDist = (uint64_t) ((val1 < val2) ? val1 : val2);
+	cout << "Got: " << currCyclDist << endl;
 	return currCyclDist;
 }
 
 /**
 * @brief Updates the max page by putting it in maxPage
 */
-void updateMaxPage(uint64_t *maxPage, uint64_t *maxCyclic, uint64_t page)
+void updateMaxPage(uint64_t targetPage, uint64_t *maxPage, uint64_t *maxCyclic, uint64_t page)
 {
 	cout << "Maybe updating max page. Max=" << *maxPage << ", curr=" << page << endl;
-	uint64_t currCyclic = getCyclicVal(targetPage, page );
+	uint64_t currCyclic = getCyclicVal(targetPage, page);
 	if (currCyclic > *maxCyclic)
 	{
-		*maxPage= page;
-		*maxCyclic  = currCyclic;
+		*maxPage = page;
+		*maxCyclic = currCyclic;
 	}
-
 }
 
 uint64_t getCurrPage(uint64_t oldPage, uint64_t depth, uint64_t offset)
@@ -129,8 +130,8 @@ uint64_t getCurrPage(uint64_t oldPage, uint64_t depth, uint64_t offset)
 /**
  * @brief Gets the maximum frame index (that is open).
  */
-void getMaxFrame(uint64_t currFrameAddr, uint64_t *maxFrame, int depth, uint64_t currPage,
-				 uint64_t *maxPage, uint64_t *maxCyclic)
+void getMaxFrame(uint64_t targetPage, uint64_t currFrameAddr, uint64_t *maxFrame, int depth,
+				 uint64_t currPage, uint64_t *maxPage, uint64_t *maxCyclic)
 {
 	cout << "Us: Getting max frame" << endl;
 	bool foundMax = false;
@@ -138,18 +139,19 @@ void getMaxFrame(uint64_t currFrameAddr, uint64_t *maxFrame, int depth, uint64_t
 	for (uint64_t i = 0; i < PAGE_SIZE; ++i)
 	{
 		readWord(currFrameAddr, i, &currWord);
-		updateMaxFrame(maxFrame, maxCyclic, currWord);
+		updateMaxFrame(maxFrame, currWord);
 		cout << "Us: depth=" << depth << endl;
 		if (currWord != 0)
 		{
 			currPage = getCurrPage(currPage, depth, i);
 			if (depth < TABLES_DEPTH - 1)
 			{
-				getMaxFrame(currWord, maxFrame, depth + 1, currPage, maxPage, maxCyclic);
+				getMaxFrame(targetPage, currWord, maxFrame, depth + 1, currPage, maxPage,
+						maxCyclic);
 			}
 			else
 			{
-				updateMaxPage(maxPage, currPage);
+				updateMaxPage(targetPage, maxPage, maxCyclic, currPage);
 			}
 		}
 	}
@@ -159,13 +161,14 @@ void getMaxFrame(uint64_t currFrameAddr, uint64_t *maxFrame, int depth, uint64_t
  * @brief Opens a frame at the given address.
  * @param frameToOpen
  */
-void openFrame(uint64_t *frameToOpen)
+void openFrame(uint64_t  targetPage, uint64_t *frameToOpen)
 {
 	cout << "Us: Opening frame" << endl;
 	uint64_t maxFrame = 0;    // MOTHERFUCKERRRRRR
 	uint64_t mainFrame = 0;
 	uint64_t maxPage = 0;
-	getMaxFrame(mainFrame, &maxFrame, 0, 0, &maxPage);
+	uint64_t maxCyclic = 0;
+	getMaxFrame(targetPage, mainFrame, &maxFrame, 0, 0, &maxPage, &maxCyclic);
 	cout << "Us: Max frame=" << maxFrame << endl;
 	if (maxFrame + 1 < NUM_FRAMES)
 	{
@@ -194,7 +197,7 @@ void getNewAddr(uint64_t page, int depth, word_t *prevAddr, word_t *currAddr, ui
 	*frameIdx = newAddr;
 	if (newAddr == 0)
 	{
-		openFrame(&openedFrame);
+		openFrame(page, &openedFrame);
 		*frameIdx = openedFrame;
 		clearTable(openedFrame);
 		writeWord(*prevAddr, offset, openedFrame);

@@ -21,7 +21,7 @@ VirtualMemory2.h
 /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/VirtualMemory2.h
 PhysicalMemory.h
 /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/PhysicalMemory.h
-math.h
+cmath
 -
 iostream
 -
