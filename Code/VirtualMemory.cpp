@@ -87,31 +87,50 @@ void updateMaxFrame(uint64_t *maxFrame, uint64_t frame)
 }
 
 /**
+ * @brief Returns the cyclic value of the current page, w.r.t the target page.
+ */
+uint64_t getCyclicVal(uint64_t targetPage, uint64_t currPage)
+{
+	uint64_t val1 = NUM_PAGES - std::abs(targetPage - currPage);
+	uint64_t  val2 = abs(targetPage - currPage);
+	uint64_t currCyclDist = (val1 < val2) ? val1 : val2;
+	return currCyclDist;
+}
+
+/**
 * @brief Updates the max page by putting it in maxPage
 */
-void updateMaxPage(uint64_t *maxPage, uint64_t page)
+void updateMaxPage(uint64_t *maxPage, uint64_t *maxCyclic, uint64_t page)
 {
-	*maxPage = max(*maxPage, page);
+	cout << "Maybe updating max page. Max=" << *maxPage << ", curr=" << page << endl;
+	uint64_t currCyclic = getCyclicVal(targetPage, page );
+	if (currCyclic > *maxCyclic)
+	{
+		*maxPage= page;
+		*maxCyclic  = currCyclic;
+	}
+
 }
 
 uint64_t getCurrPage(uint64_t oldPage, uint64_t depth, uint64_t offset)
 {
 	cout << "Getting new page for oldPage=" << oldPage << ", offset=" << offset << endl;
-	uint64_t offseted = oldPage << (int)log2(PAGE_SIZE);    // TODO: Check effect of signed
-	cout<<(int)log2(PAGE_SIZE)<<endl;
-	cout << "Offseted: " << offseted <<"="<<bitset
-	<4>(offseted)<<endl;
+	uint64_t offseted = oldPage << (int) log2(PAGE_SIZE);    // TODO: Check effect of signed
+	cout << (int) log2(PAGE_SIZE) << endl;
+	cout << "Offseted: " << offseted << "=" << bitset
+			<4>(offseted) << endl;
 
 	uint64_t ret = offseted | offset;
-	cout << "Got: " << ret <<"="<<bitset
-	<4>(ret)<<endl;
+	cout << "Got: " << ret << "=" << bitset
+			<4>(ret) << endl;
 	return ret;
 }
 
 /**
  * @brief Gets the maximum frame index (that is open).
  */
-void getMaxFrame(uint64_t currFrameAddr, uint64_t *maxFrame, int depth, uint64_t currPage, uint64_t *maxPage)
+void getMaxFrame(uint64_t currFrameAddr, uint64_t *maxFrame, int depth, uint64_t currPage,
+				 uint64_t *maxPage, uint64_t *maxCyclic)
 {
 	cout << "Us: Getting max frame" << endl;
 	bool foundMax = false;
@@ -119,14 +138,14 @@ void getMaxFrame(uint64_t currFrameAddr, uint64_t *maxFrame, int depth, uint64_t
 	for (uint64_t i = 0; i < PAGE_SIZE; ++i)
 	{
 		readWord(currFrameAddr, i, &currWord);
-		updateMaxFrame(maxFrame, currWord);
+		updateMaxFrame(maxFrame, maxCyclic, currWord);
 		cout << "Us: depth=" << depth << endl;
 		if (currWord != 0)
 		{
 			currPage = getCurrPage(currPage, depth, i);
 			if (depth < TABLES_DEPTH - 1)
 			{
-				getMaxFrame(currWord, maxFrame, depth + 1, currPage, maxPage);
+				getMaxFrame(currWord, maxFrame, depth + 1, currPage, maxPage, maxCyclic);
 			}
 			else
 			{

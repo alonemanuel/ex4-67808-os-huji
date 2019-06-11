@@ -1,3 +1,3 @@
-/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug/CMakeFiles/EX4.dir
-/home/alonemanuel/Year2/67808_os/Ex4/Code/cmake-build-debug/CMakeFiles/edit_cache.dir
+/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/cmake-build-debug/CMakeFiles/EX4.dir
+/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/cmake-build-debug/CMakeFiles/edit_cache.dir

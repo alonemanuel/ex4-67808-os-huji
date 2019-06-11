@@ -6,21 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/home/alonemanuel/Year2/67808_os/Ex4/Code/MemoryConstants.h
+/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/MemoryConstants.h
 climits
 -
 stdint.h
 -
 
-/home/alonemanuel/Year2/67808_os/Ex4/Code/PhysicalMemory.h
+/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/PhysicalMemory.h
 MemoryConstants.h
-/home/alonemanuel/Year2/67808_os/Ex4/Code/MemoryConstants.h
+/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/MemoryConstants.h
 
-/home/alonemanuel/Year2/67808_os/Ex4/Code/VirtualMemory.cpp
+/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/VirtualMemory.cpp
 VirtualMemory2.h
-/home/alonemanuel/Year2/67808_os/Ex4/Code/VirtualMemory2.h
+/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/VirtualMemory2.h
 PhysicalMemory.h
-/home/alonemanuel/Year2/67808_os/Ex4/Code/PhysicalMemory.h
+/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/PhysicalMemory.h
 math.h
 -
 iostream
@@ -28,7 +28,7 @@ iostream
 bitset
 -
 
-/home/alonemanuel/Year2/67808_os/Ex4/Code/VirtualMemory2.h
+/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/VirtualMemory2.h
 MemoryConstants.h
-/home/alonemanuel/Year2/67808_os/Ex4/Code/MemoryConstants.h
+/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/MemoryConstants.h
 
