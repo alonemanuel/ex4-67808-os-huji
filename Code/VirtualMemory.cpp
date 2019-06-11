@@ -97,7 +97,7 @@ void updateMaxPage(uint64_t *maxPage, uint64_t page)
 /**
  * @brief Gets the maximum frame index (that is open).
  */
-void getMaxFrame(uint64_t currFrameAddr, uint64_t *maxFrame, int depth, uint64_t *currPage, uint64_t *maxPage)
+void getMaxFrame(uint64_t currFrameAddr, uint64_t *maxFrame, int depth, uint64_t currPage, uint64_t *maxPage)
 {
 	cout << "Us: Getting max frame" << endl;
 	bool foundMax = false;
@@ -109,7 +109,7 @@ void getMaxFrame(uint64_t currFrameAddr, uint64_t *maxFrame, int depth, uint64_t
 		cout << "Us: depth=" << depth << endl;
 		if (currWord != 0)
 		{
-			currPage +=
+			currPage = getCurrPage(currPage, depth, i);
 			if (depth < TABLES_DEPTH - 1)) {
 				getMaxFrame(currWord, maxFrame, depth + 1);
 			}
