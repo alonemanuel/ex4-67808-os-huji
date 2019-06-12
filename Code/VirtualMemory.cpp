@@ -191,7 +191,9 @@ void openFrame(uint64_t targetPage, uint64_t *frameToOpen)
 		cout << "Us: Should swap maxPage=" << maxCyclicPage << ", maxFrame=" << maxCyclicFrame
 			 << ", maxParentFrame=" << maxCyclicParentFrame << endl;
 		removeLink(maxCyclicParentFrame);
+		cout<<"Potentially removed link"<<endl;
 		PMevict(maxCyclicFrame, maxCyclicPage);
+		cout<<"Evicted"<<endl;
 		*frameToOpen = maxCyclicFrame;
 	}
 }
@@ -214,6 +216,7 @@ void getNewAddr(uint64_t page, int depth, word_t *prevAddr, word_t *currAddr, ui
 	if (newAddr == 0)
 	{
 		openFrame(page, &openedFrame);
+		cout<<"Opened frame"<<endl;
 		*frameIdx = openedFrame;
 		clearTable(openedFrame);
 		writeWord(*prevAddr, offset, openedFrame);
