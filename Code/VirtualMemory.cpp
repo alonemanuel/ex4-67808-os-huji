@@ -1,4 +1,4 @@
-#include "VirtualMemory2.h"
+#include "VirtualMemory.h"
 #include "PhysicalMemory.h"
 #include <cmath>
 #include <iostream>
