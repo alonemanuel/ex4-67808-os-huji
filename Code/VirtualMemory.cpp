@@ -103,8 +103,9 @@ uint64_t getCyclicVal(uint64_t targetPage, uint64_t currPage)
 * @brief Updates the max page by putting it in maxPage
 */
 void updateMaxPage(uint64_t targetPage, uint64_t *maxCyclicPage, uint64_t *maxCyclicFrame,
-				   uint64_t *maxCyclicParentFrame, uint64_t *maxCyclicVal, uint64_t currPage,
-				   uint64_t currFrame, uint64_t currParentFrame)
+				   uint64_t *maxCyclicParentFrame, uint64_t *maxCyclicParentOffset, uint64_t
+				   *maxCyclicVal, uint64_t currPage,
+				   uint64_t currFrame, uint64_t currParentFrame, uint64_t currParentOffset)
 {
 	cout << "Maybe updating max page. Max=" << *maxCyclicPage << ", curr=" << currPage << endl;
 	uint64_t currCyclic = getCyclicVal(targetPage, currPage);
@@ -113,6 +114,7 @@ void updateMaxPage(uint64_t targetPage, uint64_t *maxCyclicPage, uint64_t *maxCy
 		*maxCyclicPage = currPage;
 		*maxCyclicFrame = currFrame;
 		*maxCyclicParentFrame = currParentFrame;
+		*maxCyclicParentOffset = currParentOffset;
 		*maxCyclicVal = currCyclic;
 	}
 }
@@ -136,7 +138,7 @@ uint64_t getCurrPage(uint64_t oldPage, uint64_t depth, uint64_t offset)
  */
 void getMaxFrame(uint64_t targetPage, uint64_t currFrameAddr, uint64_t *maxFrame, int depth,
 				 uint64_t currPage, uint64_t *maxCyclicPage, uint64_t *maxCyclicParentFrame,
-				 uint64_t *maxCyclicFrame, uint64_t *maxCyclicVal)
+				 uint64_t *maxCyclicParentOffset, uint64_t *maxCyclicFrame, uint64_t *maxCyclicVal)
 {
 	cout << "Us: Getting max frame" << endl;
 	bool foundMax = false;
@@ -152,21 +154,37 @@ void getMaxFrame(uint64_t targetPage, uint64_t currFrameAddr, uint64_t *maxFrame
 			if (depth < TABLES_DEPTH - 1)
 			{
 				getMaxFrame(targetPage, currWord, maxFrame, depth + 1, currPage, maxCyclicPage,
-							maxCyclicFrame, maxCyclicParentFrame, maxCyclicVal);
+							maxCyclicFrame, maxCyclicParentFrame, maxCyclicParentOffset,
+							maxCyclicVal);
 			}
 			else
 			{
 				updateMaxPage(targetPage, maxCyclicPage, maxCyclicFrame,
-							  maxCyclicParentFrame, maxCyclicVal, currPage, currWord,
-							  currFrameAddr);
+							  maxCyclicParentFrame, maxCyclicParentOffset, maxCyclicVal, currPage,
+							  currWord, currFrameAddr, i);
 			}
 		}
 	}
 }
 
-void removeLink(uint64_t parentFrame)
+void removeLink(uint64_t parentFrame, uint64_t parentOffset)
 {
-	cout << "Should remove link from frame=" << parentFrame << endl;
+	cout << "Should remove link from frame=" << parentFrame << ", offset=" << parentOffset << endl;
+	uint64_t toRemove = (parentFrame << OFFSET_WIDTH) | parentOffset;
+	PMwrite(toRemove, 0);
+}
+
+void swap(uint64_t maxCyclicParentFrame, uint64_t maxCyclicParentOffset, uint64_t maxCyclicFrame,
+		  uint64_t maxCyclicPage)
+{
+	cout << "Swapping" << endl;
+	cout << "Us: Should swap maxPage=" << maxCyclicPage << ", maxFrame=" << maxCyclicFrame
+		 << ", maxParentFrame=" << maxCyclicParentFrame << endl;
+	removeLink(maxCyclicParentFrame, maxCyclicParentOffset);
+	cout << "Potentially removed link" << endl;
+	PMevict(maxCyclicFrame, maxCyclicPage);
+	cout << "Evicted" << endl;
+	clearTable(maxCyclicFrame);
 }
 
 /**
@@ -177,10 +195,10 @@ void openFrame(uint64_t targetPage, uint64_t *frameToOpen)
 {
 	cout << "Us: Opening frame" << endl;
 	uint64_t maxFrame = 0, mainFrame = 0, maxCyclicPage = 0, maxCyclicFrame = 0,
-			maxCyclicParentFrame = 0, maxCyclicVal = 0;
+			maxCyclicParentFrame = 0, maxCyclicParentOffset = 0, maxCyclicVal = 0;
 	// MOTHERFUCKERRRRRR
-	getMaxFrame(targetPage, mainFrame, &maxFrame, 0, 0, &maxCyclicPage, &maxCyclicFrame,
-				&maxCyclicParentFrame, &maxCyclicVal);
+	getMaxFrame(targetPage, mainFrame, &maxFrame, 0, 0, &maxCyclicPage,
+				&maxCyclicParentFrame, &maxCyclicParentOffset, &maxCyclicFrame, &maxCyclicVal);
 	cout << "Us: Max frame=" << maxFrame << endl;
 	if (maxFrame + 1 < NUM_FRAMES)
 	{
@@ -188,12 +206,7 @@ void openFrame(uint64_t targetPage, uint64_t *frameToOpen)
 	}
 	else
 	{
-		cout << "Us: Should swap maxPage=" << maxCyclicPage << ", maxFrame=" << maxCyclicFrame
-			 << ", maxParentFrame=" << maxCyclicParentFrame << endl;
-		removeLink(maxCyclicParentFrame);
-		cout<<"Potentially removed link"<<endl;
-		PMevict(maxCyclicFrame, maxCyclicPage);
-		cout<<"Evicted"<<endl;
+		swap(maxCyclicParentFrame, maxCyclicParentOffset, maxCyclicFrame, maxCyclicPage);
 		*frameToOpen = maxCyclicFrame;
 	}
 }
@@ -216,7 +229,7 @@ void getNewAddr(uint64_t page, int depth, word_t *prevAddr, word_t *currAddr, ui
 	if (newAddr == 0)
 	{
 		openFrame(page, &openedFrame);
-		cout<<"Opened frame"<<endl;
+		cout << "Opened frame" << endl;
 		*frameIdx = openedFrame;
 		clearTable(openedFrame);
 		writeWord(*prevAddr, offset, openedFrame);
