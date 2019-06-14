@@ -6,6 +6,11 @@
 
 using namespace std;
 
+void getMaxFrame(uint64_t targetPage, uint64_t currFrameAddr, uint64_t *maxFrame, int depth,
+				 uint64_t currPage, uint64_t *maxCyclicPage, uint64_t *maxCyclicParentFrame,
+				 uint64_t *maxCyclicParentOffset, uint64_t *maxCyclicFrame, uint64_t
+				 *maxCyclicVal, bool *foundEmpty);
+
 /**
  * @brief Clear table at given frame
  */
@@ -133,40 +138,81 @@ uint64_t getCurrPage(uint64_t oldPage, uint64_t depth, uint64_t offset)
 	return ret;
 }
 
-/**
- * @brief Gets the maximum frame index (that is open).
- */
-void getMaxFrame(uint64_t targetPage, uint64_t currFrameAddr, uint64_t *maxFrame, int depth,
-				 uint64_t currPage, uint64_t *maxCyclicPage, uint64_t *maxCyclicParentFrame,
-				 uint64_t *maxCyclicParentOffset, uint64_t *maxCyclicFrame, uint64_t *maxCyclicVal)
+bool isChildless(uint64_t frame)
 {
-	cout << "Us: Getting max frame" << endl;
-	bool foundMax = false;
-	word_t currWord;
+	word_t currWord = 0;
+
 	for (uint64_t i = 0; i < PAGE_SIZE; ++i)
 	{
+		readWord(frame, i, &currWord);
+		if (currWord != 0)
+		{
+			return false;
+		}
+	}
+	cout << "Frame=" << frame << " is empty" << endl;
+	return true;
+}
+
+void probeChildren(uint64_t targetPage, uint64_t currFrameAddr, uint64_t *maxFrame, int depth,
+				   uint64_t currPage, uint64_t *maxCyclicPage, uint64_t *maxCyclicParentFrame,
+				   uint64_t *maxCyclicParentOffset, uint64_t *maxCyclicFrame, uint64_t
+				   *maxCyclicVal, bool *foundEmpty)
+{
+	word_t currWord;
+	for (uint64_t i = 0; (i < PAGE_SIZE) && (!*foundEmpty); ++i)
+	{
 		readWord(currFrameAddr, i, &currWord);
-		updateMaxFrame(maxFrame, currWord);
 		cout << "Us: depth=" << depth << endl;
 		if (currWord != 0)
 		{
+			updateMaxFrame(maxFrame, currWord);
 			currPage = getCurrPage(currPage, depth, i);
 			if (depth < TABLES_DEPTH - 1)
 			{
+
 				getMaxFrame(targetPage, currWord, maxFrame, depth + 1, currPage, maxCyclicPage,
 							maxCyclicFrame, maxCyclicParentFrame, maxCyclicParentOffset,
-							maxCyclicVal);
+							maxCyclicVal, foundEmpty);
 			}
 			else
 			{
 				updateMaxPage(targetPage, maxCyclicPage, maxCyclicFrame,
-							  maxCyclicParentFrame, maxCyclicParentOffset, maxCyclicVal, currPage,
+							  maxCyclicParentFrame, maxCyclicParentOffset, maxCyclicVal,
+							  currPage,
 							  currWord, currFrameAddr, i);
 			}
 		}
 	}
 }
 
+/**
+ * @brief Gets the maximum frame index (that is open).
+ */
+void getMaxFrame(uint64_t targetPage, uint64_t currFrameAddr, uint64_t *maxFrame, int depth,
+				 uint64_t currPage, uint64_t *maxCyclicPage, uint64_t *maxCyclicParentFrame,
+				 uint64_t *maxCyclicParentOffset, uint64_t *maxCyclicFrame, uint64_t
+				 *maxCyclicVal, bool *foundEmpty)
+{
+	cout << "Us: Getting max frame" << endl;
+	if (*foundEmpty)
+	{
+		return;
+	}
+	if (isChildless(currFrameAddr))
+	{
+		*maxFrame = currFrameAddr;
+		*foundEmpty = true;
+		return;
+	}
+	probeChildren(targetPage, currFrameAddr, maxFrame, depth,
+				  currPage, maxCyclicPage, maxCyclicParentFrame,
+				  maxCyclicParentOffset, maxCyclicFrame, maxCyclicVal, foundEmpty);
+}
+
+/**
+ * @brief Removes link from parent.
+ */
 void removeLink(uint64_t parentFrame, uint64_t parentOffset)
 {
 	cout << "Should remove link from frame=" << parentFrame << ", offset=" << parentOffset << endl;
@@ -174,17 +220,20 @@ void removeLink(uint64_t parentFrame, uint64_t parentOffset)
 	PMwrite(toRemove, 0);
 }
 
-void swap(uint64_t maxCyclicParentFrame, uint64_t maxCyclicParentOffset, uint64_t maxCyclicFrame,
-		  uint64_t maxCyclicPage)
+/**
+ * @brief Swaps that frame and handles evicting parent.
+ */
+void swap(uint64_t parentFrame, uint64_t parentOffset, uint64_t frameToInsert,
+		  uint64_t pageToInsert)
 {
 	cout << "Swapping" << endl;
-	cout << "Us: Should swap maxPage=" << maxCyclicPage << ", maxFrame=" << maxCyclicFrame
-		 << ", maxParentFrame=" << maxCyclicParentFrame << endl;
-	removeLink(maxCyclicParentFrame, maxCyclicParentOffset);
+	cout << "Us: Should swap maxPage=" << pageToInsert << ", maxFrame=" << frameToInsert
+		 << ", maxParentFrame=" << parentFrame << endl;
+	removeLink(parentFrame, parentOffset);
 	cout << "Potentially removed link" << endl;
-	PMevict(maxCyclicFrame, maxCyclicPage);
+	PMevict(frameToInsert, pageToInsert);
 	cout << "Evicted" << endl;
-	clearTable(maxCyclicFrame);
+	clearTable(frameToInsert);
 }
 
 /**
@@ -196,9 +245,10 @@ void openFrame(uint64_t targetPage, uint64_t *frameToOpen)
 	cout << "Us: Opening frame" << endl;
 	uint64_t maxFrame = 0, mainFrame = 0, maxCyclicPage = 0, maxCyclicFrame = 0,
 			maxCyclicParentFrame = 0, maxCyclicParentOffset = 0, maxCyclicVal = 0;
-	// MOTHERFUCKERRRRRR
+	bool foundEmpty = false;
 	getMaxFrame(targetPage, mainFrame, &maxFrame, 0, 0, &maxCyclicPage,
-				&maxCyclicParentFrame, &maxCyclicParentOffset, &maxCyclicFrame, &maxCyclicVal);
+				&maxCyclicParentFrame, &maxCyclicParentOffset, &maxCyclicFrame, &maxCyclicVal,
+				&foundEmpty);
 	cout << "Us: Max frame=" << maxFrame << endl;
 	if (maxFrame + 1 < NUM_FRAMES)
 	{
