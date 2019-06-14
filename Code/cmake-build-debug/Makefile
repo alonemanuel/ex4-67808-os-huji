@@ -123,33 +123,6 @@ EX4/fast:
 	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/build
 .PHONY : EX4/fast
 
-FlowExampleSimulation.o: FlowExampleSimulation.cpp.o
-
-.PHONY : FlowExampleSimulation.o
-
-# target to build an object file
-FlowExampleSimulation.cpp.o:
-	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.o
-.PHONY : FlowExampleSimulation.cpp.o
-
-FlowExampleSimulation.i: FlowExampleSimulation.cpp.i
-
-.PHONY : FlowExampleSimulation.i
-
-# target to preprocess a source file
-FlowExampleSimulation.cpp.i:
-	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.i
-.PHONY : FlowExampleSimulation.cpp.i
-
-FlowExampleSimulation.s: FlowExampleSimulation.cpp.s
-
-.PHONY : FlowExampleSimulation.s
-
-# target to generate assembly for a file
-FlowExampleSimulation.cpp.s:
-	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.s
-.PHONY : FlowExampleSimulation.cpp.s
-
 PhysicalMemory.o: PhysicalMemory.cpp.o
 
 .PHONY : PhysicalMemory.o
@@ -204,6 +177,33 @@ VirtualMemory.cpp.s:
 	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/VirtualMemory.cpp.s
 .PHONY : VirtualMemory.cpp.s
 
+tester.o: tester.cpp.o
+
+.PHONY : tester.o
+
+# target to build an object file
+tester.cpp.o:
+	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/tester.cpp.o
+.PHONY : tester.cpp.o
+
+tester.i: tester.cpp.i
+
+.PHONY : tester.i
+
+# target to preprocess a source file
+tester.cpp.i:
+	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/tester.cpp.i
+.PHONY : tester.cpp.i
+
+tester.s: tester.cpp.s
+
+.PHONY : tester.s
+
+# target to generate assembly for a file
+tester.cpp.s:
+	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/tester.cpp.s
+.PHONY : tester.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -213,15 +213,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... EX4"
 	@echo "... edit_cache"
-	@echo "... FlowExampleSimulation.o"
-	@echo "... FlowExampleSimulation.i"
-	@echo "... FlowExampleSimulation.s"
 	@echo "... PhysicalMemory.o"
 	@echo "... PhysicalMemory.i"
 	@echo "... PhysicalMemory.s"
 	@echo "... VirtualMemory.o"
 	@echo "... VirtualMemory.i"
 	@echo "... VirtualMemory.s"
+	@echo "... tester.o"
+	@echo "... tester.i"
+	@echo "... tester.s"
 .PHONY : help
 
 
