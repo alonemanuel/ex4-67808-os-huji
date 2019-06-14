@@ -6,30 +6,16 @@
 
 using namespace std;
 
+// Function declarations //
 void getNewFrame(uint64_t prevAddr, uint64_t targetPage, uint64_t currFrameAddr, uint64_t
 *maxFrame, int depth, uint64_t currPage, uint64_t *maxCyclicPage, uint64_t *maxCyclicParentFrame,
 				 uint64_t *maxCyclicParentOffset, uint64_t *maxCyclicFrame, uint64_t
 				 *maxCyclicVal, bool *foundEmpty);
 
-/**
- * @brief Clear table at given frame
- */
-void clearTable(uint64_t frameIndex)
-{
-	for (uint64_t i = 0; i < PAGE_SIZE; ++i)
-	{
-		PMwrite(frameIndex * PAGE_SIZE + i, 0);
-	}
-}
+void clearTable(uint64_t frameIndex);
 
-/**
- * @brief Initialize virtual address space
- */
-void VMinitialize()
-{
-	// We are initializing the first frame (frame 0), which is the main-frame, which "is" the main page-table.
-	clearTable(0);
-}
+
+// Helpers //
 
 /**
  * @brief Gets the offset and the page from a given virtual address.
@@ -57,6 +43,9 @@ void writeWord(uint64_t baseAddress, uint64_t offset, word_t word)
 	PMwrite(baseAddress * PAGE_SIZE + offset, word);
 }
 
+/**
+ * @brief Checks if the depth coressponds to reaching the end of the (pseudo)tree.
+ */
 bool reachedEndOfTree(int depth)
 {
 	return depth >= TABLES_DEPTH - 1;
@@ -102,6 +91,7 @@ void updateMaxCyclicPage(uint64_t targetPage, uint64_t *maxCyclicPage, uint64_t 
 						 uint64_t currParentFrame, uint64_t currParentOffset, int depth)
 {
 	uint64_t currCyclic = getCyclicVal(targetPage, currPage);
+	// If we didn't reach end of tree, we haven't reached a page.
 	if ((reachedEndOfTree(depth)) && (currCyclic > *maxCyclicVal))
 	{
 		*maxCyclicPage = currPage;
@@ -112,14 +102,19 @@ void updateMaxCyclicPage(uint64_t targetPage, uint64_t *maxCyclicPage, uint64_t 
 	}
 }
 
-uint64_t getCurrPage(uint64_t oldPage, uint64_t depth, uint64_t offset)
+/**
+ * @brief Gets page according to base (oldPage) and offset.
+ */
+uint64_t getCurrPage(uint64_t oldPage, uint64_t offset)
 {
 	uint64_t offseted = oldPage << (int) log2(PAGE_SIZE);    // TODO: Check effect of signed
-
 	uint64_t ret = offseted | offset;
 	return ret;
 }
 
+/**
+ * @brief Returns true iff frame is childless (it's an empty table).
+ */
 bool isChildless(uint64_t frame)
 {
 	word_t currWord = 0;
@@ -135,6 +130,9 @@ bool isChildless(uint64_t frame)
 	return true;
 }
 
+/**
+ * @brief Potentially updating pointers if the frame is an empty table.
+ */
 void updateEmptyFrame(uint64_t targetFrame, uint64_t *frameSwappedIn,
 					  uint64_t *parentSwappedIn, uint64_t *parentOffset, uint64_t currFrameAddr,
 					  uint64_t currParentFrame, uint64_t currParentOffset, bool *foundEmpty, int
@@ -153,12 +151,16 @@ void updateEmptyFrame(uint64_t targetFrame, uint64_t *frameSwappedIn,
 	}
 }
 
+/**
+ * @brief Probes children nodes of given node and finds a new frame.
+ */
 void probeChildren(uint prevAddr, uint64_t targetPage, uint64_t currFrameAddr, uint64_t
 *maxFrameAddr, int depth, uint64_t currPage, uint64_t *pageToSwapIn, uint64_t *parentToSwapIn,
 				   uint64_t *parentOffset, uint64_t *frameToSwapIn, uint64_t
 				   *maxCyclicVal, bool *foundEmpty)
 {
 	word_t currWord;
+	// Goes over all children.
 	for (uint64_t i = 0; (i < PAGE_SIZE) && (!*foundEmpty); ++i)
 	{
 		readWord(currFrameAddr, i, &currWord);
@@ -166,7 +168,7 @@ void probeChildren(uint prevAddr, uint64_t targetPage, uint64_t currFrameAddr, u
 		{
 			continue;
 		}
-		currPage = getCurrPage(currPage, depth, i);
+		currPage = getCurrPage(currPage, i);
 		updateEmptyFrame(prevAddr, frameToSwapIn, parentToSwapIn, parentOffset, currWord,
 						 currFrameAddr, i, foundEmpty, depth);
 		if (*foundEmpty)
@@ -302,6 +304,8 @@ uint64_t translateVirtAddr(uint64_t va)
 	return output;
 }
 
+// API //
+
 /**
  * @brief Reads a word from the given virtual address.
  */
@@ -320,4 +324,24 @@ int VMwrite(uint64_t virtualAddress, word_t value)
 	uint64_t physicalAddr = translateVirtAddr(virtualAddress);
 	PMwrite(physicalAddr, value);
 	return 1;
+}
+
+/**
+ * @brief Clear table at given frame
+ */
+void clearTable(uint64_t frameIndex)
+{
+	for (uint64_t i = 0; i < PAGE_SIZE; ++i)
+	{
+		PMwrite(frameIndex * PAGE_SIZE + i, 0);
+	}
+}
+
+/**
+ * @brief Initialize virtual address space
+ */
+void VMinitialize()
+{
+	// We are initializing the first frame (frame 0), which is the main-frame, which "is" the main page-table.
+	clearTable(0);
 }
