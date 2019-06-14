@@ -197,19 +197,22 @@ void probeChildren(uint prevAddr, uint64_t targetPage, uint64_t currFrameAddr, u
 			continue;
 		}
 		currPage = getCurrPage(currPage, depth, i);
-		updateMaxFrame(maxFrameAddr, currWord);
 		updateEmptyFrame(prevAddr, frameToSwapIn, parentToSwapIn, parentOffset, currWord,
 						 currFrameAddr, i, foundEmpty, depth);
+		if (*foundEmpty)
+		{
+			return;
+		}
+		updateMaxFrame(maxFrameAddr, currWord);
 		updateMaxCyclicPage(targetPage, pageToSwapIn, frameToSwapIn,
 							parentToSwapIn, parentOffset, maxCyclicVal,
 							currPage, currWord, currFrameAddr, i, depth);
-		if (*foundEmpty || reachedEndOfTree(depth))
+		if (reachedEndOfTree(depth))
 		{
 			return;
 		}
 		getNewFrame(prevAddr, targetPage, currWord, maxFrameAddr, depth + 1, currPage, pageToSwapIn,
-					frameToSwapIn, parentToSwapIn, parentOffset,
-					maxCyclicVal, foundEmpty);
+					parentToSwapIn, parentOffset, frameToSwapIn, maxCyclicVal, foundEmpty);
 	}
 }
 
