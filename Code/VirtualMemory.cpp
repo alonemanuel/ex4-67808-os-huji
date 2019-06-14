@@ -63,15 +63,18 @@ void writeWord(uint64_t baseAddress, uint64_t offset, word_t word)
 	cout << "Us: Wrote: " << word << endl;
 }
 
+bool reachedEndOfTree(int depth)
+{
+	return depth >= TABLES_DEPTH - 1;
+}
+
 /**
  * @brief Gets the relative offset defined by the original page and the current depth.
  */
 void getBaseAndOffset(uint64_t page, int depth, uint64_t *base, uint64_t *offset)
 {
 	cout << "Us: Getting base and offset by depth for page=" << page << "=" << bitset<4>(page) <<
-		 ", "
-		 "depth="
-		 << depth << endl;
+		 ", depth=" << depth << endl;
 	uint64_t segWidth = (uint64_t) ((VIRTUAL_ADDRESS_WIDTH - OFFSET_WIDTH) / TABLES_DEPTH);
 	uint64_t shiftLeft = segWidth * (TABLES_DEPTH - depth);
 	uint64_t shiftRight = segWidth * (TABLES_DEPTH - depth - 1);
@@ -107,35 +110,17 @@ uint64_t getCyclicVal(uint64_t targetPage, uint64_t currPage)
 /**
 * @brief Updates the max page by putting it in maxPage
 */
-void updateMaxPage(uint64_t targetPage, uint64_t *maxCyclicPage, uint64_t *maxCyclicFrame,
-				   uint64_t *maxCyclicParentFrame, uint64_t *maxCyclicParentOffset, uint64_t
-				   *maxCyclicVal, uint64_t currPage,
-				   uint64_t currFrame, uint64_t currParentFrame, uint64_t currParentOffset)
-{
-	cout << "Maybe updating max page. Max=" << *maxCyclicPage << ", curr=" << currPage << endl;
-	uint64_t currCyclic = getCyclicVal(targetPage, currPage);
-	if (currCyclic > *maxCyclicVal)
-	{
-		*maxCyclicPage = currPage;
-		*maxCyclicFrame = currFrame;
-		*maxCyclicParentFrame = currParentFrame;
-		*maxCyclicParentOffset = currParentOffset;
-		*maxCyclicVal = currCyclic;
-	}
-}
-
-/**
-* @brief Updates the max page by putting it in maxPage
-*/
 void updateMaxCyclicPage(uint64_t targetPage, uint64_t *maxCyclicPage, uint64_t *maxCyclicFrame,
 						 uint64_t *maxCyclicParentFrame, uint64_t *maxCyclicParentOffset, uint64_t
 						 *maxCyclicVal, uint64_t currPage, uint64_t currFrame,
-						 uint64_t currParentFrame, uint64_t currParentOffset)
+						 uint64_t currParentFrame, uint64_t currParentOffset, int depth)
 {
-	cout << "Maybe updating max page. Max=" << *maxCyclicPage << ", curr=" << currPage << endl;
+	cout << "Maybe updating max cyclic page. Max=" << *maxCyclicPage << ", curr=" << currPage <<
+		 endl;
 	uint64_t currCyclic = getCyclicVal(targetPage, currPage);
-	if (currCyclic > *maxCyclicVal)
+	if ((reachedEndOfTree(depth)) && (currCyclic > *maxCyclicVal))
 	{
+		cout << "********\nUpdated cyclic" << endl;
 		*maxCyclicPage = currPage;
 		*maxCyclicFrame = currFrame;
 		*maxCyclicParentFrame = currParentFrame;
@@ -174,19 +159,23 @@ bool isChildless(uint64_t frame)
 	return true;
 }
 
-bool reachedEndOfTree(int depth)
-{
-	return depth >= TABLES_DEPTH - 1;
-}
-
 void updateEmptyFrame(uint64_t targetFrame, uint64_t *frameSwappedIn,
 					  uint64_t *parentSwappedIn, uint64_t *parentOffset, uint64_t currFrameAddr,
-					  uint64_t currParentFrame, uint64_t currParentOffset, bool *foundEmpty)
+					  uint64_t currParentFrame, uint64_t currParentOffset, bool *foundEmpty, int
+					  depth)
 {
-	cout << "Maybe updating empty frame." << endl;
+	cout << "Maybe updating empty frame with targetFrame=" << targetFrame << ", "
+																			 "currFrame="
+		 << currFrameAddr <<
+		 endl;
+	if (reachedEndOfTree(depth))
+	{
+		return;
+	}
 	if ((targetFrame != currFrameAddr) && (isChildless(currFrameAddr)))
 	{
-		*foundEmpty=true;
+		cout << "*********\nUpdating empty" << endl;
+		*foundEmpty = true;
 		*frameSwappedIn = currFrameAddr;
 		*parentSwappedIn = currParentFrame;
 		*parentOffset = currParentOffset;
@@ -210,10 +199,10 @@ void probeChildren(uint prevAddr, uint64_t targetPage, uint64_t currFrameAddr, u
 		currPage = getCurrPage(currPage, depth, i);
 		updateMaxFrame(maxFrameAddr, currWord);
 		updateEmptyFrame(prevAddr, frameToSwapIn, parentToSwapIn, parentOffset, currWord,
-						 currFrameAddr, i, foundEmpty);
+						 currFrameAddr, i, foundEmpty, depth);
 		updateMaxCyclicPage(targetPage, pageToSwapIn, frameToSwapIn,
 							parentToSwapIn, parentOffset, maxCyclicVal,
-							currPage, currWord, currFrameAddr, i);
+							currPage, currWord, currFrameAddr, i, depth);
 		if (*foundEmpty || reachedEndOfTree(depth))
 		{
 			return;
