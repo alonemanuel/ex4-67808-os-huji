@@ -12,9 +12,33 @@ climits
 stdint.h
 -
 
+/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/PhysicalMemory.cpp
+PhysicalMemory.h
+/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/PhysicalMemory.h
+vector
+-
+unordered_map
+-
+cassert
+-
+cstdio
+-
+iostream
+-
+
 /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/PhysicalMemory.h
 MemoryConstants.h
 /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/MemoryConstants.h
+
+/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/SimpleTest.cpp
+VirtualMemory.h
+/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/VirtualMemory.h
+cstdio
+-
+cassert
+-
+iostream
+-
 
 /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/VirtualMemory.cpp
 VirtualMemory.h

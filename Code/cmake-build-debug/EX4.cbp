@@ -89,13 +89,13 @@
 		<Unit filename="/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/PhysicalMemory.h">
 			<Option target="EX4"/>
 		</Unit>
+		<Unit filename="/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/SimpleTest.cpp">
+			<Option target="EX4"/>
+		</Unit>
 		<Unit filename="/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/VirtualMemory.cpp">
 			<Option target="EX4"/>
 		</Unit>
 		<Unit filename="/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/VirtualMemory.h">
-			<Option target="EX4"/>
-		</Unit>
-		<Unit filename="/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/tester.cpp">
 			<Option target="EX4"/>
 		</Unit>
 		<Unit filename="/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/CMakeLists.txt">

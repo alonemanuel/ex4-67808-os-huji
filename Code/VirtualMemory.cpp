@@ -8,8 +8,8 @@ using namespace std;
 
 // Function declarations //
 void getNewFrame(uint64_t prevAddr, uint64_t targetPage, uint64_t currFrameAddr, uint64_t
-*maxFrame, int depth, uint64_t currPage, uint64_t *maxCyclicPage, uint64_t *maxCyclicParentFrame,
-				 uint64_t *maxCyclicParentOffset, uint64_t *maxCyclicFrame, uint64_t
+*maxFrameAddr, int depth, uint64_t currPage, uint64_t *pageToSwapIn, uint64_t *parentToSwapIn,
+				 uint64_t *parentOffset, uint64_t *frameToSwapIn, uint64_t
 				 *maxCyclicVal, bool *foundEmpty);
 
 void clearTable(uint64_t frameIndex);
@@ -40,6 +40,8 @@ void readWord(uint64_t baseAddress, uint64_t offset, word_t *word)
  */
 void writeWord(uint64_t baseAddress, uint64_t offset, word_t word)
 {
+	cout << "In writeWord with baseFrame=" << baseAddress << ", offset=" << offset << ", word="
+		 << word << endl;
 	PMwrite(baseAddress * PAGE_SIZE + offset, word);
 }
 
@@ -54,13 +56,12 @@ bool reachedEndOfTree(int depth)
 /**
  * @brief Gets the relative offset defined by the original page and the current depth.
  */
-void getBaseAndOffset(uint64_t page, int depth, uint64_t *base, uint64_t *offset)
+void getOffset(uint64_t page, int depth, uint64_t *offset)
 {
 	uint64_t segWidth = (uint64_t) ((VIRTUAL_ADDRESS_WIDTH - OFFSET_WIDTH) / TABLES_DEPTH);
 	uint64_t shiftLeft = segWidth * (TABLES_DEPTH - depth);
 	uint64_t shiftRight = segWidth * (TABLES_DEPTH - depth - 1);
 	*offset = (page & ((1 << shiftLeft) - 1)) >> shiftRight;
-	*base = depth;
 }
 
 /**
@@ -152,13 +153,17 @@ void updateEmptyFrame(uint64_t targetFrame, uint64_t *frameSwappedIn,
 }
 
 /**
- * @brief Probes children nodes of given node and finds a new frame.
+ * @brief Gets the maximum frame index (that is open).
  */
-void probeChildren(uint prevAddr, uint64_t targetPage, uint64_t currFrameAddr, uint64_t
+void getNewFrame(uint64_t prevAddr, uint64_t targetPage, uint64_t currFrameAddr, uint64_t
 *maxFrameAddr, int depth, uint64_t currPage, uint64_t *pageToSwapIn, uint64_t *parentToSwapIn,
-				   uint64_t *parentOffset, uint64_t *frameToSwapIn, uint64_t
-				   *maxCyclicVal, bool *foundEmpty)
+				 uint64_t *parentOffset, uint64_t *frameToSwapIn, uint64_t
+				 *maxCyclicVal, bool *foundEmpty)
 {
+	if (*foundEmpty)
+	{
+		return;
+	}
 	word_t currWord;
 	// Goes over all children.
 	for (uint64_t i = 0; (i < PAGE_SIZE) && (!*foundEmpty); ++i)
@@ -186,23 +191,6 @@ void probeChildren(uint prevAddr, uint64_t targetPage, uint64_t currFrameAddr, u
 		getNewFrame(prevAddr, targetPage, currWord, maxFrameAddr, depth + 1, currPage, pageToSwapIn,
 					parentToSwapIn, parentOffset, frameToSwapIn, maxCyclicVal, foundEmpty);
 	}
-}
-
-/**
- * @brief Gets the maximum frame index (that is open).
- */
-void getNewFrame(uint64_t prevAddr, uint64_t targetPage, uint64_t currFrameAddr, uint64_t
-*maxFrame, int depth, uint64_t currPage, uint64_t *maxCyclicPage, uint64_t *maxCyclicParentFrame,
-				 uint64_t *maxCyclicParentOffset, uint64_t *maxCyclicFrame, uint64_t
-				 *maxCyclicVal, bool *foundEmpty)
-{
-	if (*foundEmpty)
-	{
-		return;
-	}
-	probeChildren(prevAddr, targetPage, currFrameAddr, maxFrame, depth,
-				  currPage, maxCyclicPage, maxCyclicParentFrame,
-				  maxCyclicParentOffset, maxCyclicFrame, maxCyclicVal, foundEmpty);
 }
 
 /**
@@ -257,23 +245,20 @@ void openFrame(uint64_t prevAddr, uint64_t targetPage, uint64_t *frameToOpen)
  * @param depth depth in the frame-tree
  * @param value container for the output
  */
-void getNewAddr(uint64_t page, int depth, word_t *prevAddr, word_t *currAddr, uint64_t *frameIdx)
+void getNewFrame(uint64_t page, int depth, uint64_t *parentFrame, uint64_t *currFrame)
 {
-	uint64_t base, offset, openedFrame;
-	word_t newAddr;
-	getBaseAndOffset(page, depth, &base, &offset);
-	readWord(*prevAddr, offset, &newAddr);
-	*frameIdx = newAddr;
-	if (newAddr == 0)
+	uint64_t offset;
+	getOffset(page, depth, &offset);
+	readWord(*parentFrame, offset, (word_t *) currFrame);
+	cout << "In getNewAddr with parentFrame=" << *parentFrame << " and offset=" << offset
+		 << ". newAddr=" << *currFrame << endl;
+	if (*currFrame == 0)
 	{
-		openFrame(*prevAddr, page, &openedFrame);
-		*frameIdx = openedFrame;
-		clearTable(openedFrame);
-		writeWord(*prevAddr, offset, openedFrame);
-		*prevAddr = openedFrame;
+		openFrame(*parentFrame, page, currFrame);
+		clearTable(*currFrame);
+		writeWord(*parentFrame, offset, *currFrame);
 	}
-	*prevAddr = *frameIdx;
-	*currAddr = newAddr;
+	*parentFrame = *currFrame;
 }
 
 /**
@@ -286,21 +271,16 @@ uint64_t translateVirtAddr(uint64_t va)
 	uint64_t offset, page;
 	word_t output;
 	getOffsetAndPage(va, &offset, &page);
-
+	cout << "In translateVirtAddr with page=" << page << endl;
 	int depth = 0;
-	uint64_t frameIdx;
-	word_t currAddr = 0;
-	word_t prevAddr = 0;
+	uint64_t currFrame = 0, parentFrame = 0;
 	while (depth < TABLES_DEPTH)
 	{
-		getNewAddr(page, depth, &prevAddr, &currAddr, &frameIdx);
+		getNewFrame(page, depth, &parentFrame, &currFrame);
 		depth++;
 	}
-	if (currAddr == 0)
-	{
-		PMrestore(frameIdx, page);
-	}
-	output = (frameIdx << OFFSET_WIDTH) | offset;
+	PMrestore(currFrame, page);
+	output = (currFrame << OFFSET_WIDTH) | offset;
 	return output;
 }
 
