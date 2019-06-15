@@ -1,6 +1,6 @@
 #pragma once
 
-#include "MemoryConstants.h"
+#include "MemoryConstants2.h"
 
 /*
  * Initialize the virtual memory

@@ -6,7 +6,23 @@
 
 #IncludeRegexTransform: 
 
-/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/MemoryConstants.h
+/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/FlowExampleSimulation.cpp
+cstdio
+-
+cassert
+-
+iostream
+-
+iomanip
+-
+vector
+-
+VirtualMemory.h
+/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/VirtualMemory.h
+PhysicalMemory.h
+/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/PhysicalMemory.h
+
+/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/MemoryConstants2.h
 climits
 -
 stdint.h
@@ -27,18 +43,8 @@ iostream
 -
 
 /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/PhysicalMemory.h
-MemoryConstants.h
-/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/MemoryConstants.h
-
-/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/SimpleTest.cpp
-VirtualMemory.h
-/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/VirtualMemory.h
-cstdio
--
-cassert
--
-iostream
--
+MemoryConstants2.h
+/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/MemoryConstants2.h
 
 /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/VirtualMemory.cpp
 VirtualMemory.h
@@ -53,6 +59,6 @@ bitset
 -
 
 /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/VirtualMemory.h
-MemoryConstants.h
-/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/MemoryConstants.h
+MemoryConstants2.h
+/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/MemoryConstants2.h
 

@@ -40,7 +40,8 @@ void readWord(uint64_t baseAddress, uint64_t offset, word_t *word)
  */
 void writeWord(uint64_t baseAddress, uint64_t offset, word_t word)
 {
-	cout << "In writeWord with baseFrame=" << baseAddress << ", offset=" << offset << ", word="
+	cout << "In writeWord with baseFrame = " << baseAddress << ", offset = " << offset << ", word"
+																						  " = "
 		 << word << endl;
 	PMwrite(baseAddress * PAGE_SIZE + offset, word);
 }
@@ -95,6 +96,8 @@ void updateMaxCyclicPage(uint64_t targetPage, uint64_t *maxCyclicPage, uint64_t 
 	// If we didn't reach end of tree, we haven't reached a page.
 	if ((reachedEndOfTree(depth)) && (currCyclic > *maxCyclicVal))
 	{
+		cout << "*****\nUpdating maxCyclicVal to be " << currCyclic << ", currPage = " << currPage
+			 << endl;
 		*maxCyclicPage = currPage;
 		*maxCyclicFrame = currFrame;
 		*maxCyclicParentFrame = currParentFrame;
@@ -160,33 +163,33 @@ void getNewFrame(uint64_t prevAddr, uint64_t targetPage, uint64_t currFrameAddr,
 				 uint64_t *parentOffset, uint64_t *frameToSwapIn, uint64_t
 				 *maxCyclicVal, bool *foundEmpty)
 {
-	if (*foundEmpty)
-	{
-		return;
-	}
 	word_t currWord;
 	// Goes over all children.
-	for (uint64_t i = 0; (i < PAGE_SIZE) && (!*foundEmpty); ++i)
+	for (uint64_t i = 0; i < PAGE_SIZE; ++i)
 	{
 		readWord(currFrameAddr, i, &currWord);
 		if (currWord == 0)
 		{
 			continue;
 		}
-		currPage = getCurrPage(currPage, i);
+	cout << "Traversing with curr = " << currFrameAddr << " at offset = "
+		 << i << endl;
 		updateEmptyFrame(prevAddr, frameToSwapIn, parentToSwapIn, parentOffset, currWord,
 						 currFrameAddr, i, foundEmpty, depth);
 		if (*foundEmpty)
 		{
+			cout<<"Found empty"<<endl;
 			return;
 		}
 		updateMaxFrame(maxFrameAddr, currWord);
+		currPage = getCurrPage(currPage, i);
 		updateMaxCyclicPage(targetPage, pageToSwapIn, frameToSwapIn,
 							parentToSwapIn, parentOffset, maxCyclicVal,
 							currPage, currWord, currFrameAddr, i, depth);
 		if (reachedEndOfTree(depth))
 		{
-			return;
+			cout<<"Reached end of tree"<<endl;
+			continue;
 		}
 		getNewFrame(prevAddr, targetPage, currWord, maxFrameAddr, depth + 1, currPage, pageToSwapIn,
 					parentToSwapIn, parentOffset, frameToSwapIn, maxCyclicVal, foundEmpty);
@@ -211,7 +214,13 @@ void swap(uint64_t parentFrame, uint64_t parentOffset, uint64_t frameToInsert,
 	removeLink(parentFrame, parentOffset);
 	if (!foundEmpty)
 	{
+		cout << "Swapping because found max cyclic" << endl;
 		PMevict(frameToInsert, pageToInsert);
+	}
+	else
+	{
+
+		cout << "Swapping because found empty frame" << endl;
 	}
 	clearTable(frameToInsert);
 }
@@ -220,22 +229,24 @@ void swap(uint64_t parentFrame, uint64_t parentOffset, uint64_t frameToInsert,
  * @brief Opens a frame at the given address.
  * @param frameToOpen
  */
-void openFrame(uint64_t prevAddr, uint64_t targetPage, uint64_t *frameToOpen)
+void openFrame(uint64_t originalFrameParent, uint64_t targetPage, uint64_t *frameToOpen)
 {
-	uint64_t maxFrame = 0, mainFrame = 0, pageToSwapIn = 0, frameToSwapIn = 0,
-			parentToSwapInFrame = 0, parentToSwapInOffset = 0, maxCyclicVal = 0;
+	uint64_t maxFrameFound = 0, mainFrame = 0, pageToSwapIn = 0, frameToSwapIn = 0,
+			parentFrameToSwapIn = 0, parentOffsetToSwapIn = 0, maxCyclicVal = 0, depth = 0, currPage = 0;
 	bool foundEmpty = false;
-	getNewFrame(prevAddr, targetPage, mainFrame, &maxFrame, 0, 0, &pageToSwapIn,
-				&parentToSwapInFrame, &parentToSwapInOffset, &frameToSwapIn, &maxCyclicVal,
-				&foundEmpty);
-	if (foundEmpty || (maxFrame + 1 >= NUM_FRAMES))
+	getNewFrame(originalFrameParent, targetPage, mainFrame, &maxFrameFound, depth, currPage,
+				&pageToSwapIn, &parentFrameToSwapIn, &parentOffsetToSwapIn, &frameToSwapIn,
+				&maxCyclicVal, &foundEmpty);
+
+	if (foundEmpty || (maxFrameFound + 1 >= NUM_FRAMES))
 	{
-		swap(parentToSwapInFrame, parentToSwapInOffset, frameToSwapIn, pageToSwapIn, foundEmpty);
+		swap(parentFrameToSwapIn, parentOffsetToSwapIn, frameToSwapIn, pageToSwapIn, foundEmpty);
 		*frameToOpen = frameToSwapIn;
 	}
 	else
 	{
-		*frameToOpen = maxFrame + 1;
+		cout << "Found max frame = " << maxFrameFound + 1 << endl;
+		*frameToOpen = maxFrameFound + 1;
 	}
 }
 
@@ -245,16 +256,17 @@ void openFrame(uint64_t prevAddr, uint64_t targetPage, uint64_t *frameToOpen)
  * @param depth depth in the frame-tree
  * @param value container for the output
  */
-void getNewFrame(uint64_t page, int depth, uint64_t *parentFrame, uint64_t *currFrame)
+void getNewFrame(uint64_t targetPage, int depth, uint64_t *parentFrame, uint64_t *currFrame)
 {
 	uint64_t offset;
-	getOffset(page, depth, &offset);
+	getOffset(targetPage, depth, &offset);
 	readWord(*parentFrame, offset, (word_t *) currFrame);
-	cout << "In getNewAddr with parentFrame=" << *parentFrame << " and offset=" << offset
-		 << ". newAddr=" << *currFrame << endl;
+	cout << "In getNewAddr with depth = " << depth << ", parentFrame = " << *parentFrame << " and "
+																							"offset = "
+		 << offset << ". newAddr = " << *currFrame << endl;
 	if (*currFrame == 0)
 	{
-		openFrame(*parentFrame, page, currFrame);
+		openFrame(*parentFrame, targetPage, currFrame);
 		clearTable(*currFrame);
 		writeWord(*parentFrame, offset, *currFrame);
 	}
@@ -271,7 +283,9 @@ uint64_t translateVirtAddr(uint64_t va)
 	uint64_t offset, page;
 	word_t output;
 	getOffsetAndPage(va, &offset, &page);
-	cout << "In translateVirtAddr with page=" << page << endl;
+	cout << "\nIn translateVirtAddr with page = " << page << "(" << bitset<PAGE_SIZE>(page) << ")"
+		 << " and offset = "
+			"" << offset << endl;
 	int depth = 0;
 	uint64_t currFrame = 0, parentFrame = 0;
 	while (depth < TABLES_DEPTH)
@@ -302,6 +316,7 @@ int VMread(uint64_t virtualAddress, word_t *value)
 int VMwrite(uint64_t virtualAddress, word_t value)
 {
 	uint64_t physicalAddr = translateVirtAddr(virtualAddress);
+	cout << "Finally, writing " << value << " to " << physicalAddr << endl;
 	PMwrite(physicalAddr, value);
 	return 1;
 }

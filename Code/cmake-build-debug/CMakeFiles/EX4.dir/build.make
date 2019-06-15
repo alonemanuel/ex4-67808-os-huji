@@ -83,31 +83,31 @@ CMakeFiles/EX4.dir/PhysicalMemory.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/EX4.dir/PhysicalMemory.cpp.s"
 	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/PhysicalMemory.cpp -o CMakeFiles/EX4.dir/PhysicalMemory.cpp.s
 
-CMakeFiles/EX4.dir/SimpleTest.cpp.o: CMakeFiles/EX4.dir/flags.make
-CMakeFiles/EX4.dir/SimpleTest.cpp.o: ../SimpleTest.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/EX4.dir/SimpleTest.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EX4.dir/SimpleTest.cpp.o -c /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/SimpleTest.cpp
+CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.o: CMakeFiles/EX4.dir/flags.make
+CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.o: ../FlowExampleSimulation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.o -c /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/FlowExampleSimulation.cpp
 
-CMakeFiles/EX4.dir/SimpleTest.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/EX4.dir/SimpleTest.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/SimpleTest.cpp > CMakeFiles/EX4.dir/SimpleTest.cpp.i
+CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/FlowExampleSimulation.cpp > CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.i
 
-CMakeFiles/EX4.dir/SimpleTest.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/EX4.dir/SimpleTest.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/SimpleTest.cpp -o CMakeFiles/EX4.dir/SimpleTest.cpp.s
+CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/FlowExampleSimulation.cpp -o CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.s
 
 # Object files for target EX4
 EX4_OBJECTS = \
 "CMakeFiles/EX4.dir/VirtualMemory.cpp.o" \
 "CMakeFiles/EX4.dir/PhysicalMemory.cpp.o" \
-"CMakeFiles/EX4.dir/SimpleTest.cpp.o"
+"CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.o"
 
 # External object files for target EX4
 EX4_EXTERNAL_OBJECTS =
 
 EX4.exe: CMakeFiles/EX4.dir/VirtualMemory.cpp.o
 EX4.exe: CMakeFiles/EX4.dir/PhysicalMemory.cpp.o
-EX4.exe: CMakeFiles/EX4.dir/SimpleTest.cpp.o
+EX4.exe: CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.o
 EX4.exe: CMakeFiles/EX4.dir/build.make
 EX4.exe: CMakeFiles/EX4.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable EX4.exe"

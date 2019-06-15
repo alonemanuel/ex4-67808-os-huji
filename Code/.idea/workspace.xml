@@ -14,21 +14,20 @@
     <list default="true" id="7ae97538-340d-4460-a9c0-ade41f085c68" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PhysicalMemory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PhysicalMemory.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PhysicalMemory.h" beforeDir="false" afterPath="$PROJECT_DIR$/PhysicalMemory.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimpleTest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleTest.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VirtualMemory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualMemory.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VirtualMemory.h" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualMemory.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EX4.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EX4.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EX4.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EX4.dir/DependInfo.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EX4.dir/PhysicalMemory.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EX4.dir/PhysicalMemory.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EX4.dir/SimpleTest.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EX4.dir/VirtualMemory.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EX4.dir/VirtualMemory.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EX4.dir/VirtualMemory.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EX4.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EX4.dir/build.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EX4.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EX4.dir/cmake_clean.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EX4.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EX4.dir/depend.internal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EX4.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EX4.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EX4.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EX4.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EX4.dir/tester.cpp.o" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/EX4.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/EX4.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/EX4.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/EX4.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/EX4.exe.stackdump" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/EX4.exe.stackdump" afterDir="false" />
@@ -58,16 +57,16 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cpp" value="5152" />
+          <entry key="cpp" value="6169" />
           <entry key="h" value="5" />
-          <entry key="txt" value="27" />
+          <entry key="txt" value="32" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CMakeLists.txt" value="27" />
-          <entry key="Doxygen file" value="8" />
-          <entry key="ObjectiveC" value="5149" />
+          <entry key="CMakeLists.txt" value="32" />
+          <entry key="Doxygen file" value="9" />
+          <entry key="ObjectiveC" value="6165" />
         </counts>
       </usages-collector>
     </session>
@@ -77,17 +76,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tester.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-604">
-              <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+            <state relative-caret-position="168">
+              <caret line="20" selection-start-line="20" selection-end-line="26" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/VirtualMemory.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="43" column="25" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
+            <state relative-caret-position="63">
+              <caret line="182" column="9" selection-start-line="182" selection-start-column="9" selection-end-line="182" selection-end-column="9" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -98,7 +97,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MemoryConstants.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
+            <state relative-caret-position="-54">
               <caret line="20" column="48" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
             </state>
           </provider>
@@ -107,8 +106,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MemoryConstants2.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+            <state relative-caret-position="243">
+              <caret line="63" selection-start-line="63" selection-end-line="63" />
             </state>
           </provider>
         </entry>
@@ -117,7 +116,7 @@
         <entry file="file://$PROJECT_DIR$/PhysicalMemory.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
+              <caret column="7" selection-start-column="7" selection-end-column="7" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
               </folding>
@@ -134,11 +133,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/VirtualMemory.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+            <state relative-caret-position="255">
+              <caret line="15" column="3" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -146,8 +145,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SimpleTest.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+            <state relative-caret-position="351">
+              <caret line="31" column="22" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -159,7 +158,7 @@
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+              <caret line="6" column="29" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -169,7 +168,6 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>Maybe</find>
-      <find>swap</find>
       <find>should</find>
       <find>PMev</find>
       <find>pageToS</find>
@@ -180,8 +178,13 @@
       <find>get</find>
       <find>getNewFr</find>
       <find>getCurrP</find>
-      <find>cout</find>
       <find>currAddr</find>
+      <find>newAdd</find>
+      <find>=</find>
+      <find>cout</find>
+      <find>seg</find>
+      <find>max</find>
+      <find>swap</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -191,10 +194,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/PhysicalMemory.cpp" />
+        <option value="$PROJECT_DIR$/SimpleTest.cpp" />
+        <option value="$PROJECT_DIR$/VirtualMemory.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/PhysicalMemory.h" />
         <option value="$PROJECT_DIR$/VirtualMemory.h" />
-        <option value="$PROJECT_DIR$/VirtualMemory.cpp" />
       </list>
     </option>
   </component>
@@ -270,29 +274,29 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1560510335474</updated>
-      <workItem from="1560510336671" duration="25703000" />
+      <workItem from="1560510336671" duration="34617000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25047000" />
+    <option name="totallyTimeSpent" value="33961000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="240" y="0" width="1304" height="872" extended-state="0" />
+    <frame x="110" y="0" width="1434" height="872" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.14840637" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.040029112" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info active="true" anchor="bottom" id="Messages" visible="true" weight="0.35317996" />
+      <window_info anchor="bottom" id="Messages" weight="0.7266576" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="CMake" weight="0.6906377" />
+      <window_info anchor="bottom" id="CMake" weight="0.69012177" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.41001353" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25304466" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -307,13 +311,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tester.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-604">
-          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FlowExampleSimulation.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-612">
@@ -323,10 +320,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tester.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="20" selection-start-line="20" selection-end-line="26" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MemoryConstants.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-54">
+          <caret line="20" column="48" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MemoryConstants2.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PhysicalMemory.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VirtualMemory.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="182" column="9" selection-start-line="182" selection-start-column="9" selection-end-line="182" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SimpleTest.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+        <state relative-caret-position="351">
+          <caret line="31" column="22" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -336,7 +374,7 @@
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+          <caret line="6" column="29" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -349,42 +387,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/VirtualMemory.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MemoryConstants.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="20" column="48" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MemoryConstants2.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PhysicalMemory.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/VirtualMemory.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="43" column="25" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="255">
+          <caret line="15" column="3" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
         </state>
       </provider>
     </entry>
