@@ -99,8 +99,8 @@ uint64_t getCyclicVal(uint64_t targetPage, uint64_t currPage)
  */
 uint64_t getCurrPage(uint64_t oldPage, uint64_t offset)
 {
-	cout << "Moving currPage = " << bitset<VIRTUAL_ADDRESS_WIDTH - OFFSET_WIDTH>(oldPage)
-		 << " left by 4 bits" << endl;
+//	cout << "Moving currPage = " << bitset<VIRTUAL_ADDRESS_WIDTH - OFFSET_WIDTH>(oldPage)
+//		 << " left by 4 bits" << endl;
 	uint64_t offseted = oldPage << (int) log2(PAGE_SIZE);    // TODO: Check effect of signed
 	uint64_t ret = offseted | offset;
 	return ret;
@@ -116,9 +116,9 @@ void updateMaxCyclicPage(uint64_t targetPage, uint64_t *maxCyclicPage, uint64_t 
 	uint64_t currCyclic = getCyclicVal(targetPage, currPage);
 //	currPage = getCurrPage(currPage, currParentOffset);
 	// If we didn't reach end of tree, we haven't reached a page.
-	cout << "*****\nMaybe updating maxCyclicVal to be " << currCyclic << ", currPage = " <<
-		 currPage << " = " << bitset<VIRTUAL_ADDRESS_WIDTH - OFFSET_WIDTH>(currPage)
-		 << endl;
+//	cout << "*****\nMaybe updating maxCyclicVal to be " << currCyclic << ", currPage = " <<
+//		 currPage << " = " << bitset<VIRTUAL_ADDRESS_WIDTH - OFFSET_WIDTH>(currPage)
+//		 << endl;
 	if ((reachedPageDepth(depth)) && (currCyclic > *maxCyclicVal))
 	{
 		*maxCyclicPage = currPage;
@@ -188,15 +188,15 @@ void getNewFrame(uint64_t prevAddr, uint64_t targetPage, uint64_t currFrameAddr,
 		{
 			continue;
 		}
-		cout << "Traversing at depth = " << depth << ", with curFrame = " << currFrameAddr
-			 << " at offset = " << i << ", currPage = "
-			 << bitset<VIRTUAL_ADDRESS_WIDTH - OFFSET_WIDTH>(newPage) << endl;
+//		cout << "Traversing at depth = " << depth << ", with curFrame = " << currFrameAddr
+//			 << " at offset = " << i << ", currPage = "
+//			 << bitset<VIRTUAL_ADDRESS_WIDTH - OFFSET_WIDTH>(newPage) << endl;
 		newPage = getCurrPage(newPage, i);
 		updateEmptyFrame(prevAddr, frameToSwapIn, parentToSwapIn, parentOffset, currWord,
 						 currFrameAddr, i, foundEmpty, depth);
 		if (*foundEmpty)
 		{
-			cout << "Found empty" << endl;
+//			cout << "Found empty" << endl;
 			return;
 		}
 		updateMaxFrame(maxFrameAddr, currWord);
@@ -205,7 +205,7 @@ void getNewFrame(uint64_t prevAddr, uint64_t targetPage, uint64_t currFrameAddr,
 			updateMaxCyclicPage(targetPage, pageToSwapIn, frameToSwapIn,
 								parentToSwapIn, parentOffset, maxCyclicVal,
 								newPage, currWord, currFrameAddr, i, depth);
-			cout << "Reached page depth" << endl;
+//			cout << "Reached page depth" << endl;
 			continue;
 		}
 		getNewFrame(prevAddr, targetPage, currWord, maxFrameAddr, depth + 1, newPage, pageToSwapIn,
@@ -300,10 +300,10 @@ uint64_t translateVirtAddr(uint64_t va)
 	uint64_t offset, page;
 	word_t output;
 	getOffsetAndPage(va, &offset, &page);
-	cout << "\nIn translateVirtAddr with page = " << page << "("
-		 << bitset<VIRTUAL_ADDRESS_WIDTH - OFFSET_WIDTH>(page) << ")"
-		 << " and offset = "
-			"" << offset << endl;
+//	cout << "\nIn translateVirtAddr with page = " << page << "("
+//		 << bitset<VIRTUAL_ADDRESS_WIDTH - OFFSET_WIDTH>(page) << ")"
+//		 << " and offset = "
+//			"" << offset << endl;
 	int depth = 0;
 	uint64_t currFrame = 0, parentFrame = 0;
 	while (depth < TABLES_DEPTH)

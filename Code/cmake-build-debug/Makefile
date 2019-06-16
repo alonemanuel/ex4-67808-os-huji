@@ -150,33 +150,6 @@ PhysicalMemory.cpp.s:
 	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/PhysicalMemory.cpp.s
 .PHONY : PhysicalMemory.cpp.s
 
-SimpleTest.o: SimpleTest.cpp.o
-
-.PHONY : SimpleTest.o
-
-# target to build an object file
-SimpleTest.cpp.o:
-	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/SimpleTest.cpp.o
-.PHONY : SimpleTest.cpp.o
-
-SimpleTest.i: SimpleTest.cpp.i
-
-.PHONY : SimpleTest.i
-
-# target to preprocess a source file
-SimpleTest.cpp.i:
-	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/SimpleTest.cpp.i
-.PHONY : SimpleTest.cpp.i
-
-SimpleTest.s: SimpleTest.cpp.s
-
-.PHONY : SimpleTest.s
-
-# target to generate assembly for a file
-SimpleTest.cpp.s:
-	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/SimpleTest.cpp.s
-.PHONY : SimpleTest.cpp.s
-
 VirtualMemory.o: VirtualMemory.cpp.o
 
 .PHONY : VirtualMemory.o
@@ -204,6 +177,33 @@ VirtualMemory.cpp.s:
 	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/VirtualMemory.cpp.s
 .PHONY : VirtualMemory.cpp.s
 
+tester.o: tester.cpp.o
+
+.PHONY : tester.o
+
+# target to build an object file
+tester.cpp.o:
+	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/tester.cpp.o
+.PHONY : tester.cpp.o
+
+tester.i: tester.cpp.i
+
+.PHONY : tester.i
+
+# target to preprocess a source file
+tester.cpp.i:
+	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/tester.cpp.i
+.PHONY : tester.cpp.i
+
+tester.s: tester.cpp.s
+
+.PHONY : tester.s
+
+# target to generate assembly for a file
+tester.cpp.s:
+	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/tester.cpp.s
+.PHONY : tester.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -216,12 +216,12 @@ help:
 	@echo "... PhysicalMemory.o"
 	@echo "... PhysicalMemory.i"
 	@echo "... PhysicalMemory.s"
-	@echo "... SimpleTest.o"
-	@echo "... SimpleTest.i"
-	@echo "... SimpleTest.s"
 	@echo "... VirtualMemory.o"
 	@echo "... VirtualMemory.i"
 	@echo "... VirtualMemory.s"
+	@echo "... tester.o"
+	@echo "... tester.i"
+	@echo "... tester.s"
 .PHONY : help
 
 
