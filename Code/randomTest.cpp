@@ -56,14 +56,14 @@ void random_test()
     for (uint64_t address : write_read_order)
     {
         VMwrite(address, (word_t) address);
-//        std::cout << "Writing to addr: " << address << " value: " << address << "\n";
+        std::cout << "Writing to addr: " << address << " value: " << address << "\n";
     }
 
     word_t value;
     for (uint64_t address : write_read_order)
     {
         VMread(address, &value);
-//        std::cout << "Expecting addr: " << address << " contains value: " << address << "\n";
+        std::cout << "Expecting addr: " << address << " contains value: " << address << "\n";
         assert(word_t(address) == value);
     }
     std::cout << "random test succeeded.\n";

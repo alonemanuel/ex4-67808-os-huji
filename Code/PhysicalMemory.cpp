@@ -55,7 +55,7 @@ void PMevict(uint64_t frameIndex, uint64_t evictedPageIndex)
 	assert(evictedPageIndex < NUM_PAGES);
 
 	swapFile[evictedPageIndex] = RAM[frameIndex];
-	std::cout << "Evicted page " << evictedPageIndex << " succefully" << std::endl;
+//	std::cout << "Evicted page " << evictedPageIndex << " succefully" << std::endl;
 }
 
 void PMrestore(uint64_t frameIndex, uint64_t restoredPageIndex)

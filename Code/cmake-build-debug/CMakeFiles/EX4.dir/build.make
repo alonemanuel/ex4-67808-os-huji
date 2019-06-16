@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /cygdrive/c/Users/aeder/.CLion2018.2/system/cygwin_cmake/bin/cmake.exe
+CMAKE_COMMAND = /usr/local/APP/jetbrains/clion/2018.2.1/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /cygdrive/c/Users/aeder/.CLion2018.2/system/cygwin_cmake/bin/cmake.exe -E remove -f
+RM = /usr/local/APP/jetbrains/clion/2018.2.1/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code
+CMAKE_SOURCE_DIR = /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/cmake-build-debug
+CMAKE_BINARY_DIR = /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/EX4.dir/depend.make
@@ -59,62 +59,62 @@ include CMakeFiles/EX4.dir/flags.make
 
 CMakeFiles/EX4.dir/VirtualMemory.cpp.o: CMakeFiles/EX4.dir/flags.make
 CMakeFiles/EX4.dir/VirtualMemory.cpp.o: ../VirtualMemory.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/EX4.dir/VirtualMemory.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EX4.dir/VirtualMemory.cpp.o -c /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/VirtualMemory.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/EX4.dir/VirtualMemory.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EX4.dir/VirtualMemory.cpp.o -c /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/VirtualMemory.cpp
 
 CMakeFiles/EX4.dir/VirtualMemory.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/EX4.dir/VirtualMemory.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/VirtualMemory.cpp > CMakeFiles/EX4.dir/VirtualMemory.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/VirtualMemory.cpp > CMakeFiles/EX4.dir/VirtualMemory.cpp.i
 
 CMakeFiles/EX4.dir/VirtualMemory.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/EX4.dir/VirtualMemory.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/VirtualMemory.cpp -o CMakeFiles/EX4.dir/VirtualMemory.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/VirtualMemory.cpp -o CMakeFiles/EX4.dir/VirtualMemory.cpp.s
 
 CMakeFiles/EX4.dir/PhysicalMemory.cpp.o: CMakeFiles/EX4.dir/flags.make
 CMakeFiles/EX4.dir/PhysicalMemory.cpp.o: ../PhysicalMemory.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/EX4.dir/PhysicalMemory.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EX4.dir/PhysicalMemory.cpp.o -c /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/PhysicalMemory.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/EX4.dir/PhysicalMemory.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EX4.dir/PhysicalMemory.cpp.o -c /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/PhysicalMemory.cpp
 
 CMakeFiles/EX4.dir/PhysicalMemory.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/EX4.dir/PhysicalMemory.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/PhysicalMemory.cpp > CMakeFiles/EX4.dir/PhysicalMemory.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/PhysicalMemory.cpp > CMakeFiles/EX4.dir/PhysicalMemory.cpp.i
 
 CMakeFiles/EX4.dir/PhysicalMemory.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/EX4.dir/PhysicalMemory.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/PhysicalMemory.cpp -o CMakeFiles/EX4.dir/PhysicalMemory.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/PhysicalMemory.cpp -o CMakeFiles/EX4.dir/PhysicalMemory.cpp.s
 
-CMakeFiles/EX4.dir/tester.cpp.o: CMakeFiles/EX4.dir/flags.make
-CMakeFiles/EX4.dir/tester.cpp.o: ../tester.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/EX4.dir/tester.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EX4.dir/tester.cpp.o -c /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/tester.cpp
+CMakeFiles/EX4.dir/randomTest.cpp.o: CMakeFiles/EX4.dir/flags.make
+CMakeFiles/EX4.dir/randomTest.cpp.o: ../randomTest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/EX4.dir/randomTest.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EX4.dir/randomTest.cpp.o -c /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/randomTest.cpp
 
-CMakeFiles/EX4.dir/tester.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/EX4.dir/tester.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/tester.cpp > CMakeFiles/EX4.dir/tester.cpp.i
+CMakeFiles/EX4.dir/randomTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/EX4.dir/randomTest.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/randomTest.cpp > CMakeFiles/EX4.dir/randomTest.cpp.i
 
-CMakeFiles/EX4.dir/tester.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/EX4.dir/tester.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/tester.cpp -o CMakeFiles/EX4.dir/tester.cpp.s
+CMakeFiles/EX4.dir/randomTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/EX4.dir/randomTest.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/randomTest.cpp -o CMakeFiles/EX4.dir/randomTest.cpp.s
 
 # Object files for target EX4
 EX4_OBJECTS = \
 "CMakeFiles/EX4.dir/VirtualMemory.cpp.o" \
 "CMakeFiles/EX4.dir/PhysicalMemory.cpp.o" \
-"CMakeFiles/EX4.dir/tester.cpp.o"
+"CMakeFiles/EX4.dir/randomTest.cpp.o"
 
 # External object files for target EX4
 EX4_EXTERNAL_OBJECTS =
 
-EX4.exe: CMakeFiles/EX4.dir/VirtualMemory.cpp.o
-EX4.exe: CMakeFiles/EX4.dir/PhysicalMemory.cpp.o
-EX4.exe: CMakeFiles/EX4.dir/tester.cpp.o
-EX4.exe: CMakeFiles/EX4.dir/build.make
-EX4.exe: CMakeFiles/EX4.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable EX4.exe"
+EX4: CMakeFiles/EX4.dir/VirtualMemory.cpp.o
+EX4: CMakeFiles/EX4.dir/PhysicalMemory.cpp.o
+EX4: CMakeFiles/EX4.dir/randomTest.cpp.o
+EX4: CMakeFiles/EX4.dir/build.make
+EX4: CMakeFiles/EX4.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable EX4"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/EX4.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/EX4.dir/build: EX4.exe
+CMakeFiles/EX4.dir/build: EX4
 
 .PHONY : CMakeFiles/EX4.dir/build
 
@@ -123,6 +123,6 @@ CMakeFiles/EX4.dir/clean:
 .PHONY : CMakeFiles/EX4.dir/clean
 
 CMakeFiles/EX4.dir/depend:
-	cd /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/cmake-build-debug /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/cmake-build-debug /cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/cmake-build-debug/CMakeFiles/EX4.dir/DependInfo.cmake --color=$(COLOR)
+	cd /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug /cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/cmake-build-debug/CMakeFiles/EX4.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/EX4.dir/depend
 

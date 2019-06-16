@@ -6,29 +6,49 @@
 
 #IncludeRegexTransform: 
 
-/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/MemoryConstants.h
+/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/MemoryConstants.h
 climits
 -
 stdint.h
 -
 
-/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/PhysicalMemory.h
-MemoryConstants.h
-/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/MemoryConstants.h
-
-/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/VirtualMemory.cpp
-VirtualMemory.h
-/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/VirtualMemory.h
+/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/PhysicalMemory.cpp
 PhysicalMemory.h
-/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/PhysicalMemory.h
-cmath
+/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/PhysicalMemory.h
+vector
+-
+unordered_map
+-
+cassert
+-
+cstdio
 -
 iostream
 -
-bitset
--
 
-/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/VirtualMemory.h
+/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/PhysicalMemory.h
 MemoryConstants.h
-/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/MemoryConstants.h
+/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/MemoryConstants.h
+
+/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/VirtualMemory.h
+MemoryConstants.h
+/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/MemoryConstants.h
+
+/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/randomTest.cpp
+VirtualMemory.h
+/cs/usr/alonemanuel/Year2/Semester2/67808_OS/Ex4/Code/VirtualMemory.h
+cstdio
+-
+cassert
+-
+iostream
+-
+algorithm
+-
+chrono
+-
+vector
+-
+random
+-
 

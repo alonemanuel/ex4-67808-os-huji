@@ -10,7 +10,7 @@ CMakeFiles/EX4.dir/VirtualMemory.cpp.o: ../PhysicalMemory.h
 CMakeFiles/EX4.dir/VirtualMemory.cpp.o: ../VirtualMemory.cpp
 CMakeFiles/EX4.dir/VirtualMemory.cpp.o: ../VirtualMemory.h
 
-CMakeFiles/EX4.dir/tester.cpp.o: ../MemoryConstants.h
-CMakeFiles/EX4.dir/tester.cpp.o: ../VirtualMemory.h
-CMakeFiles/EX4.dir/tester.cpp.o: ../tester.cpp
+CMakeFiles/EX4.dir/randomTest.cpp.o: ../MemoryConstants.h
+CMakeFiles/EX4.dir/randomTest.cpp.o: ../VirtualMemory.h
+CMakeFiles/EX4.dir/randomTest.cpp.o: ../randomTest.cpp
 
