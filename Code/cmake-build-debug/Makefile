@@ -123,33 +123,6 @@ EX4/fast:
 	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/build
 .PHONY : EX4/fast
 
-FlowExampleSimulation.o: FlowExampleSimulation.cpp.o
-
-.PHONY : FlowExampleSimulation.o
-
-# target to build an object file
-FlowExampleSimulation.cpp.o:
-	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.o
-.PHONY : FlowExampleSimulation.cpp.o
-
-FlowExampleSimulation.i: FlowExampleSimulation.cpp.i
-
-.PHONY : FlowExampleSimulation.i
-
-# target to preprocess a source file
-FlowExampleSimulation.cpp.i:
-	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.i
-.PHONY : FlowExampleSimulation.cpp.i
-
-FlowExampleSimulation.s: FlowExampleSimulation.cpp.s
-
-.PHONY : FlowExampleSimulation.s
-
-# target to generate assembly for a file
-FlowExampleSimulation.cpp.s:
-	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/FlowExampleSimulation.cpp.s
-.PHONY : FlowExampleSimulation.cpp.s
-
 PhysicalMemory.o: PhysicalMemory.cpp.o
 
 .PHONY : PhysicalMemory.o
@@ -176,6 +149,33 @@ PhysicalMemory.s: PhysicalMemory.cpp.s
 PhysicalMemory.cpp.s:
 	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/PhysicalMemory.cpp.s
 .PHONY : PhysicalMemory.cpp.s
+
+SimpleTest.o: SimpleTest.cpp.o
+
+.PHONY : SimpleTest.o
+
+# target to build an object file
+SimpleTest.cpp.o:
+	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/SimpleTest.cpp.o
+.PHONY : SimpleTest.cpp.o
+
+SimpleTest.i: SimpleTest.cpp.i
+
+.PHONY : SimpleTest.i
+
+# target to preprocess a source file
+SimpleTest.cpp.i:
+	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/SimpleTest.cpp.i
+.PHONY : SimpleTest.cpp.i
+
+SimpleTest.s: SimpleTest.cpp.s
+
+.PHONY : SimpleTest.s
+
+# target to generate assembly for a file
+SimpleTest.cpp.s:
+	$(MAKE) -f CMakeFiles/EX4.dir/build.make CMakeFiles/EX4.dir/SimpleTest.cpp.s
+.PHONY : SimpleTest.cpp.s
 
 VirtualMemory.o: VirtualMemory.cpp.o
 
@@ -213,12 +213,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... EX4"
 	@echo "... edit_cache"
-	@echo "... FlowExampleSimulation.o"
-	@echo "... FlowExampleSimulation.i"
-	@echo "... FlowExampleSimulation.s"
 	@echo "... PhysicalMemory.o"
 	@echo "... PhysicalMemory.i"
 	@echo "... PhysicalMemory.s"
+	@echo "... SimpleTest.o"
+	@echo "... SimpleTest.i"
+	@echo "... SimpleTest.s"
 	@echo "... VirtualMemory.o"
 	@echo "... VirtualMemory.i"
 	@echo "... VirtualMemory.s"

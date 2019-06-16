@@ -80,16 +80,16 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/FlowExampleSimulation.cpp">
-			<Option target="EX4"/>
-		</Unit>
-		<Unit filename="/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/MemoryConstants2.h">
+		<Unit filename="/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/MemoryConstants.h">
 			<Option target="EX4"/>
 		</Unit>
 		<Unit filename="/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/PhysicalMemory.cpp">
 			<Option target="EX4"/>
 		</Unit>
 		<Unit filename="/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/PhysicalMemory.h">
+			<Option target="EX4"/>
+		</Unit>
+		<Unit filename="/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/SimpleTest.cpp">
 			<Option target="EX4"/>
 		</Unit>
 		<Unit filename="/cygdrive/e/alon_emanuel_drive/School/Year2/Semester2/67808_OS/Exercises/Ex4/Code/VirtualMemory.cpp">
