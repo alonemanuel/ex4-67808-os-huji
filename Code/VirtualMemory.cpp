@@ -1,8 +1,6 @@
 #include "VirtualMemory.h"
 #include "PhysicalMemory.h"
 #include <cmath>
-#include <iostream>
-#include <bitset>
 
 using namespace std;
 
@@ -40,9 +38,6 @@ void readWord(uint64_t baseAddress, uint64_t offset, word_t *word)
  */
 void writeWord(uint64_t baseAddress, uint64_t offset, word_t word)
 {
-//	cout << "In writeWord with baseFrame = " << baseAddress << ", offset = " << offset << ", word"
-//																						  " = "
-//		 << word << endl;
 	PMwrite(baseAddress * PAGE_SIZE + offset, word);
 }
 
@@ -70,7 +65,7 @@ void getOffset(uint64_t page, int depth, uint64_t *offset)
  */
 void updateMaxFrame(uint64_t *maxFrame, uint64_t frame)
 {
-	*maxFrame = max(*maxFrame, frame);
+	*maxFrame = frame > *maxFrame ? frame : *maxFrame;
 }
 
 /**
@@ -87,8 +82,8 @@ uint64_t getCyclicVal(uint64_t targetPage, uint64_t currPage)
 	else
 	{
 
-		val1 = NUM_PAGES - (int) (currPage - targetPage);
-		val2 = (int) (currPage - targetPage);
+		val1 = NUM_PAGES - (currPage - targetPage);
+		val2 = (currPage - targetPage);
 	}
 	uint64_t currCyclDist = ((val1 < val2) ? val1 : val2);
 	return currCyclDist;
@@ -99,12 +94,11 @@ uint64_t getCyclicVal(uint64_t targetPage, uint64_t currPage)
  */
 uint64_t getCurrPage(uint64_t oldPage, uint64_t offset)
 {
-//	cout << "Moving currPage = " << bitset<VIRTUAL_ADDRESS_WIDTH - OFFSET_WIDTH>(oldPage)
-//		 << " left by 4 bits" << endl;
 	uint64_t offseted = oldPage << (int) log2(PAGE_SIZE);    // TODO: Check effect of signed
 	uint64_t ret = offseted | offset;
 	return ret;
 }
+
 /**
 * @brief Updates the max page by putting it in maxPage
 */
@@ -114,11 +108,7 @@ void updateMaxCyclicPage(uint64_t targetPage, uint64_t *maxCyclicPage, uint64_t 
 						 uint64_t currParentFrame, uint64_t currParentOffset, int depth)
 {
 	uint64_t currCyclic = getCyclicVal(targetPage, currPage);
-//	currPage = getCurrPage(currPage, currParentOffset);
 	// If we didn't reach end of tree, we haven't reached a page.
-//	cout << "*****\nMaybe updating maxCyclicVal to be " << currCyclic << ", currPage = " <<
-//		 currPage << " = " << bitset<VIRTUAL_ADDRESS_WIDTH - OFFSET_WIDTH>(currPage)
-//		 << endl;
 	if ((reachedPageDepth(depth)) && (currCyclic > *maxCyclicVal))
 	{
 		*maxCyclicPage = currPage;
@@ -188,15 +178,11 @@ void getNewFrame(uint64_t prevAddr, uint64_t targetPage, uint64_t currFrameAddr,
 		{
 			continue;
 		}
-//		cout << "Traversing at depth = " << depth << ", with curFrame = " << currFrameAddr
-//			 << " at offset = " << i << ", currPage = "
-//			 << bitset<VIRTUAL_ADDRESS_WIDTH - OFFSET_WIDTH>(newPage) << endl;
 		newPage = getCurrPage(newPage, i);
 		updateEmptyFrame(prevAddr, frameToSwapIn, parentToSwapIn, parentOffset, currWord,
 						 currFrameAddr, i, foundEmpty, depth);
 		if (*foundEmpty)
 		{
-//			cout << "Found empty" << endl;
 			return;
 		}
 		updateMaxFrame(maxFrameAddr, currWord);
@@ -205,7 +191,6 @@ void getNewFrame(uint64_t prevAddr, uint64_t targetPage, uint64_t currFrameAddr,
 			updateMaxCyclicPage(targetPage, pageToSwapIn, frameToSwapIn,
 								parentToSwapIn, parentOffset, maxCyclicVal,
 								newPage, currWord, currFrameAddr, i, depth);
-//			cout << "Reached page depth" << endl;
 			continue;
 		}
 		getNewFrame(prevAddr, targetPage, currWord, maxFrameAddr, depth + 1, newPage, pageToSwapIn,
@@ -231,13 +216,7 @@ void swap(uint64_t parentFrame, uint64_t parentOffset, uint64_t frameToInsert,
 	removeLink(parentFrame, parentOffset);
 	if (!foundEmpty)
 	{
-//		cout << "Swapping because found max cyclic" << endl;
 		PMevict(frameToInsert, pageToInsert);
-	}
-	else
-	{
-
-//		cout << "Swapping because found empty frame" << endl;
 	}
 	clearTable(frameToInsert);
 }
@@ -262,7 +241,6 @@ void openFrame(uint64_t originalFrameParent, uint64_t targetPage, uint64_t *fram
 	}
 	else
 	{
-//		cout << "Found max frame = " << maxFrameFound << endl;
 		*frameToOpen = maxFrameFound + 1;
 	}
 }
@@ -278,9 +256,6 @@ void getNewFrame(uint64_t targetPage, int depth, uint64_t *parentFrame, uint64_t
 	uint64_t offset;
 	getOffset(targetPage, depth, &offset);
 	readWord(*parentFrame, offset, (word_t *) currFrame);
-//	cout << "In getNewAddr with depth = " << depth << ", parentFrame = " << *parentFrame << " and "
-//																							"offset = "
-//		 << offset << ". newAddr = " << *currFrame << endl;
 	if (*currFrame == 0)
 	{
 		openFrame(*parentFrame, targetPage, currFrame);
@@ -300,10 +275,6 @@ uint64_t translateVirtAddr(uint64_t va)
 	uint64_t offset, page;
 	word_t output;
 	getOffsetAndPage(va, &offset, &page);
-//	cout << "\nIn translateVirtAddr with page = " << page << "("
-//		 << bitset<VIRTUAL_ADDRESS_WIDTH - OFFSET_WIDTH>(page) << ")"
-//		 << " and offset = "
-//			"" << offset << endl;
 	int depth = 0;
 	uint64_t currFrame = 0, parentFrame = 0;
 	while (depth < TABLES_DEPTH)
@@ -334,7 +305,6 @@ int VMread(uint64_t virtualAddress, word_t *value)
 int VMwrite(uint64_t virtualAddress, word_t value)
 {
 	uint64_t physicalAddr = translateVirtAddr(virtualAddress);
-//	cout << "Finally, writing " << value << " to " << physicalAddr << endl;
 	PMwrite(physicalAddr, value);
 	return 1;
 }
